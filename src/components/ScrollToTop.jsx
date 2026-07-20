@@ -34,7 +34,7 @@ const ScrollToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           onClick={scrollToTop}
-          className="fixed bottom-10 right-10 z-50 p-4 bg-white border border-champagne-gold/30 shadow-xl hover:bg-champagne-gold group transition-all duration-300"
+          className="fixed bottom-10 right-10 z-50 p-2 bg-white border border-champagne-gold/30 shadow-xl hover:bg-champagne-gold group transition-all duration-300"
         >
           <ChevronUp className="w-6 h-6 text-champagne-gold group-hover:text-deep-black transition-colors" />
         </motion.button>
