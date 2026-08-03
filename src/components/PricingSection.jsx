@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
 
 const priceCollection = [
+  // {
+  //   type: "3 BHK Residence",
+  //   subTitle: "The Elite Suite",
+  //   area: "1,850 - 2,200 Sq.Ft.",
+  //   price: "₹2.45 Cr onwards*",
+  //   highlights: ["Private Elevator Access", "Double-Height Living Room", "Panoramic Golf View Balcony"],
+  //   tag: "Limited Inventory"
+  // },
   {
-    type: "3 BHK Residence",
-    subTitle: "The Elite Suite",
-    area: "1,850 - 2,200 Sq.Ft.",
-    price: "₹2.45 Cr onwards*",
-    highlights: ["Private Elevator Access", "Double-Height Living Room", "Panoramic Golf View Balcony"],
-    tag: "Limited Inventory"
-  },
-  {
-    type: "4 BHK Sky Mansion",
+    type: "4 BHK Apartments ",
     subTitle: "The Pleiaddes Imperial",
     area: "2,800 - 3,500 Sq.Ft.",
     price: "₹3.80 Cr onwards*",
@@ -50,7 +50,7 @@ const PricingSection = () => {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-1 gap-12 max-w-5xl mx-auto">
           {priceCollection.map((item, index) => (
             <motion.div
               key={index}

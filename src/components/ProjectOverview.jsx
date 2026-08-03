@@ -6,8 +6,8 @@ const ProjectOverview = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const images = [
     "/about1.png",
-    "/about2.png", // Aap yahan apni aur images ke paths de sakte hain
-    "/about3.png"
+    "/amenities3.png", 
+    "/amenities7.png"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

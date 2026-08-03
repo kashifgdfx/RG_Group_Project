@@ -3,9 +3,9 @@ import { Download, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const stats = [
-  { label: 'Starting Area', value: '1,850 Sq.Ft.' },
+  { label: 'Starting Area', value: '1,276 Sq.Ft.' },
   { label: 'Configuration', value: '3 & 4 BHK' },
-  { label: 'Possession', value: 'Dec 2026' },
+  { label: 'Possession', value: 'Sep 2029' },
 ];
 
 const slides = [

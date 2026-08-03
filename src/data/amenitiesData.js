@@ -1,78 +1,166 @@
 export const amenitiesData = [
-  { 
-    id: "grand-clubhouse",
-    title: "Grand Clubhouse", 
-    img: "/img1.jpg",
-    subtitle: "The Epicenter of Leisure & Social Life",
-    description: "Spread across thousands of square feet, our grand clubhouse offers an exquisite blend of architecture and top-tier recreational zones designed for the elite residents of RG's Pleiaddes.",
-    features: ["Wi-Fi Enabled Lounge", "Concierge Desk", "Reading & Library Corner", "Private Meeting Rooms"]
-  },
-  { 
-    id: "temperature-controlled-pools",
-    title: "Temperature Controlled Pools", 
-    img: "/about3.png",
-    subtitle: "A Refreshing Oasis All Year Round",
-    description: "Dive into luxury with our state-of-the-art temperature-controlled swimming pools, crafted for both relaxed lounging and invigorating laps regardless of the season.",
-    features: ["Separate Kids Pool", "Sunbathing Deck", "Jacuzzi & Spa Integration", "Professional Lifeguard Supervision"]
-  },
-  { 
+  {
     id: "wellness-spa-center",
-    title: "Wellness & Spa Center", 
-    img: "/img3.jpg",
-    subtitle: "Rejuvenate Your Mind, Body & Soul",
-    description: "Indulge in ultimate relaxation at our dedicated wellness and spa center, equipped with modern therapies, steam rooms, and professional attendants.",
-    features: ["Aromatherapy Rooms", "Steam & Sauna", "Meditation Zones", "Professional Therapists On-Call"]
+    title: "Wellness & Spa Centre",
+    img: "/img1.jpg",
+    subtitle: "Relaxation with a Cosmic Touch",
+    description:
+      "Step into a serene wellness retreat designed to rejuvenate your mind and body. Experience premium spa therapies, tranquil massage rooms, and luxurious wellness spaces that redefine relaxation.",
+    features: [
+      "Luxury Massage Rooms",
+      "Steam & Sauna",
+      "Meditation Spaces",
+      "Holistic Wellness Experience",
+    ],
   },
-  { 
-    id: "indoor-sports-arena",
-    title: "Indoor Sports Arena", 
-    img: "/about2.png",
-    subtitle: "Action & Entertainment Indoors",
-    description: "Engage in friendly matches or intense tournaments at our multi-facility indoor sports arena built with international-grade flooring.",
-    features: ["Badminton Courts", "Table Tennis", "Billiards & Snooker", "Board Games Lounge"]
+
+  {
+    id: "senior-citizen-lounge",
+    title: "Senior Citizen Lounge",
+    img: "/amenities.png",
+    subtitle: "Golden Years Shining with Grace",
+    description:
+      "A thoughtfully designed lounge where senior residents can unwind, socialize, read, and enjoy peaceful moments in a sophisticated and comfortable environment.",
+    features: [
+      "Reading Library",
+      "Comfortable Seating",
+      "Indoor Social Space",
+      "Peaceful Ambience",
+    ],
   },
-  { 
-    id: "golf-simulator",
-    title: "A Grand Arrival. A Lifetime of Luxury.", 
-    img: "/img5.jpg",
-    subtitle: "Discover premium residences crafted for those who expect nothing but the finest.",
-    description: "Experience virtual golfing on world-famous courses right inside your residential community using advanced motion-tracking simulation technology.",
-    features: ["Realistic Course Rendering", "Swing Analysis Tech", "Coaching Mode Available", "Private Booking Options"]
+
+  {
+    id: "indoor-games-room",
+    title: "Indoor Games Room",
+    img: "/amenities3.png",
+    subtitle: "Stage for the Champions",
+    description:
+      "A vibrant indoor recreation space offering fun and competitive games for all age groups, creating the perfect setting for leisure and family entertainment.",
+    features: [
+      "Chess & Carrom",
+      "Board Games",
+      "Table Games",
+      "Family Entertainment Zone",
+    ],
   },
-  { 
-    id: "open-terrace-social",
-    title: "Taste the Universe in Style.", 
-    img: "/img6.jpg",
-   subtitle: "Stargazing and Evening Soirees",
-description:
-  "A beautifully designed open-air rooftop retreat where residents can enjoy starlit evenings, elegant gatherings, and breathtaking panoramic views in a sophisticated setting.",
-features: [
-  "Barbecue Counters",
-  "Ambient Deck Lighting",
-  "Seating Lounges",
-  "Panoramic Skyline Views",
-]
+
+  {
+    id: "grand-lobby",
+    title: "Grand Entrance Lobby",
+    img: "/amenities4.jpg",
+    subtitle: "A Grand Arrival, Every Time",
+    description:
+      "Experience an impressive welcome with an elegantly designed double-height lobby featuring premium interiors, concierge services, and luxurious waiting lounges.",
+    features: [
+      "Double Height Lobby",
+      "Luxury Reception",
+      "Designer Interiors",
+      "Concierge Desk",
+    ],
   },
-  { 
-    id: "banquet-hall",
-    title: "Banquet Hall", 
-    img: "/img7.jpg",
-    subtitle: "Celebrate Life's Finest Moments",
-    description: "An opulent banquet facility complete with pre-function areas and catering support to host grand family celebrations and community events.",
-    features: ["Air-Conditioned Grand Hall", "Attached Pantry Space", "Designer Lighting", "Flexible Seating Layouts"]
+
+  {
+    id: "tennis-court",
+    title: "Professional Tennis Court",
+    img: "/amenities5.png",
+    subtitle: "The Court of Life",
+    description:
+      "Enjoy world-class tennis facilities crafted for practice, recreation, and competitive play amidst beautifully landscaped surroundings.",
+    features: [
+      "Professional Court",
+      "Night Lighting",
+      "Spectator Seating",
+      "Green Surroundings",
+    ],
   },
-   { 
-  id: "fitness-centre",
-  title: "Fitness Centre",
-  img: "/img2.jpg",
-  subtitle: "Elevate Your Everyday Fitness",
-  description:
-    "A state-of-the-art fitness centre equipped with modern workout equipment and dedicated wellness spaces, designed to help residents maintain a healthy and active lifestyle.",
-  features: [
-    "Modern Cardio Equipment",
-    "Strength Training Zone",
-    "Functional Workout Area",
-    "Air-Conditioned Interiors"
-  ]
-},
+
+  {
+    id: "kids-play-area",
+    title: "Kids Play Area",
+    img: "/amenities6.png",
+    subtitle: "Freedom in Every Smile",
+    description:
+      "An exciting outdoor play zone where children can learn, explore, and enjoy endless fun in a safe, colorful, and thoughtfully designed environment.",
+    features: [
+      "Adventure Play Equipment",
+      "Safe Rubber Flooring",
+      "Interactive Play Zone",
+      "Landscaped Garden",
+    ],
+  },
+
+  {
+    id: "palm-court",
+    title: "Palm Court",
+    img: "/amenities7.png",
+    subtitle: "Live the Divine Life",
+    description:
+      "A stunning landscaped palm court featuring elegant water features, lush greenery, and sophisticated seating areas for peaceful evenings and social gatherings.",
+    features: [
+      "Water Features",
+      "Palm Tree Landscape",
+      "Luxury Seating",
+      "Evening Ambience",
+    ],
+  },
+
+  {
+    id: "temperature-controlled-pools",
+    title: "Luxury Swimming Pool",
+    img: "/amenities8.png",
+    subtitle: "An Ocean of Opulence",
+    description:
+      "Immerse yourself in an expansive resort-style swimming pool surrounded by cascading water features, premium decks, and beautifully landscaped leisure spaces.",
+    features: [
+      "Resort Style Pool",
+      "Poolside Deck",
+      "Waterfalls",
+      "Relaxation Lounge",
+    ],
+  },
+
+  {
+    id: "amphitheatre",
+    title: "Open Amphitheatre",
+    img: "/hero2.png",
+    subtitle: "Witness Unmatched Luxury",
+    description:
+      "A beautifully crafted open-air amphitheatre designed for cultural events, performances, celebrations, and memorable community experiences.",
+    features: [
+      "Open Air Seating",
+      "Event Space",
+      "Landscape Views",
+      "Community Gatherings",
+    ],
+  },
+
+  {
+    id: "landscaped-gardens",
+    title: "Landscaped Gardens",
+    img: "/amenities9.png",
+    subtitle: "Landscaped by the Universe",
+    description:
+      "Breathe in the beauty of expansive green landscapes, walking trails, aromatic gardens, and peaceful outdoor spaces designed for everyday relaxation.",
+    features: [
+      "Walking Trails",
+      "Aroma Gardens",
+      "Lush Green Lawns",
+      "Relaxation Zones",
+    ],
+  },
+
+  {
+    id: "aerial-view",
+    title: "Grand Podium Lifestyle",
+    img: "/amenities10.png",
+    subtitle: "Luxury Written in the Stars",
+    description:
+      "A spectacular podium-level lifestyle featuring premium amenities, landscaped gardens, swimming pools, sports zones, and leisure spaces seamlessly integrated into one luxurious community.",
+    features: [
+      "Central Podium",
+      "Infinity Style Pool",
+      "Lifestyle Amenities",
+      "Skyline Views",
+    ],
+  },
 ];

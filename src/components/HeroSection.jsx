@@ -20,7 +20,7 @@ const slides = [
   },
   {
     img: "/hero3.png",
-    tag: "3 & 4 BHK Residences · From 1,850 Sq.Ft.",
+    tag: "3 & 4 BHK Residences · From 1,276 Sq.Ft.",
     heading: ["Luxury Begins", "The Moment You Arrive"],
   },
    {
@@ -31,9 +31,9 @@ const slides = [
 ];
 
 const stats = [
-  { value: "1,850", label: "Sq.Ft. Starting" },
+  { value: "1,276", label: "Sq.Ft. Starting" },
   { value: "3 & 4", label: "BHK Options" },
-  { value: "Dec'26", label: "Possession" },
+  { value: "Sep'29", label: "Possession" },
 ];
 
 const contentVariants = {
