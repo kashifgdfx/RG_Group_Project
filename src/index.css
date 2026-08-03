@@ -13,6 +13,15 @@
   --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.btn-gold {
+  @apply bg-gold text-white px-8 py-3 rounded-sm uppercase tracking-[0.2em] text-sm font-medium transition-all duration-300;
+}
+
+.btn-gold:hover {
+  background: var(--color-gold-light);
+  transform: translateY(-2px);
+}
+
 @layer base {
   body {
     @apply bg-white text-gray-900 font-sans antialiased;
@@ -21,6 +30,9 @@
 
   h1, h2, h3 {
     @apply font-serif text-charcoal;
+  }
+  button {
+    @apply cursor-pointer;
   }
 }
 

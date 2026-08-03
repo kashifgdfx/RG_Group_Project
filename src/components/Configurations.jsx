@@ -1,3 +1,5 @@
+
+import {Link} from 'react-router-dom';
 const Configurations = () => {
   const flats = [
     {
@@ -48,10 +50,11 @@ const Configurations = () => {
                   </li>
                 ))}
               </ul>
-              
+              <Link to='/floor-plans'>
               <button className="w-full py-3 border border-charcoal text-charcoal font-medium uppercase text-sm group-hover:bg-charcoal group-hover:text-white transition-all duration-300">
                 View Floor Plan
               </button>
+              </Link>
             </div>
           ))}
         </div>

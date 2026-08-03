@@ -1,46 +1,119 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import BookingModal from "./BookingModal";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        
-        {/* Logo */}
-        <div className="text-2xl font-serif text-charcoal tracking-tighter z-50">
-          RG GROUP
-        </div>
+    <>
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex gap-10 text-slate font-medium text-sm uppercase tracking-widest">
-          <a href="#overview" className="hover:text-gold transition-colors duration-300">Overview</a>
-          <a href="#amenities" className="hover:text-gold transition-colors duration-300">Amenities</a>
-          <a href="#location" className="hover:text-gold transition-colors duration-300">Location</a>
-        </div>
+          {/* Logo */}
+          <div className="z-50">
+            <Link to="/">
+              <img
+                src="/logo.png"
+                alt="RG Group Logo"
+                className="h-14 lg:h-16 w-auto object-contain"
+              />
+            </Link>
+          </div>
 
-        {/* CTA Button (Desktop) */}
-        <div className="hidden md:block">
-          <button className="btn-gold">Book Site Visit</button>
-        </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-10 text-white font-medium text-sm uppercase tracking-[0.2em]">
+            <HashLink smooth to="/#overview" className="hover:text-gold transition-colors duration-300">
+              Overview
+            </HashLink>
+            <HashLink smooth to="/#amenities" className="hover:text-gold transition-colors duration-300">
+              Amenities
+            </HashLink>
+            
+            {/* Ye alag page par jayega */}
+            <Link to="/floor-plans" className="hover:text-gold transition-colors duration-300">
+              Floor Plans
+            </Link>
 
-        {/* Mobile Hamburger Button */}
-        <button 
-          className="md:hidden text-charcoal z-50" 
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? '✕' : '☰'}
-        </button>
+            <HashLink smooth to="/#location" className="hover:text-gold transition-colors duration-300">
+              Location
+            </HashLink>
+          </div>
 
-        {/* Mobile Menu Overlay */}
-        <div className={`fixed top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center gap-8 transition-transform duration-500 md:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-          <a href="#overview" onClick={() => setIsOpen(false)} className="text-xl uppercase font-serif text-charcoal">Overview</a>
-          <a href="#amenities" onClick={() => setIsOpen(false)} className="text-xl uppercase font-serif text-charcoal">Amenities</a>
-          <a href="#location" onClick={() => setIsOpen(false)} className="text-xl uppercase font-serif text-charcoal">Location</a>
-          <button className="btn-gold mt-4">Book Site Visit</button>
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="btn-gold"
+            >
+              Book Site Visit
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-white text-3xl z-50"
+          >
+            {isOpen ? "✕" : "☰"}
+          </button>
+
+          {/* Mobile Menu */}
+          <div
+            className={`fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center gap-8 transition-transform duration-500 md:hidden ${
+              isOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+          >
+            <HashLink
+              smooth
+              to="/#overview"
+              onClick={() => setIsOpen(false)}
+              className="text-white text-2xl uppercase tracking-widest hover:text-gold transition-colors"
+            >
+              Overview
+            </HashLink>
+            <HashLink
+              smooth
+              to="/#amenities"
+              onClick={() => setIsOpen(false)}
+              className="text-white text-2xl uppercase tracking-widest hover:text-gold transition-colors"
+            >
+              Amenities
+            </HashLink>
+            <Link
+              to="/floor-plans"
+              onClick={() => setIsOpen(false)}
+              className="text-white text-2xl uppercase tracking-widest hover:text-gold transition-colors"
+            >
+              Floor Plans
+            </Link>
+            <HashLink
+              smooth
+              to="/#location"
+              onClick={() => setIsOpen(false)}
+              className="text-white text-2xl uppercase tracking-widest hover:text-gold transition-colors"
+            >
+              Location
+            </HashLink>
+
+            <button 
+              onClick={() => {
+                setIsOpen(false);
+                setIsModalOpen(true);
+              }}
+              className="btn-gold mt-4"
+            >
+              Book Site Visit
+            </button>
+          </div>
+          
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaFacebookF, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -15,10 +16,15 @@ const Footer = () => {
           {/* ── Brand Column ── */}
           <div className="md:col-span-4">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-1 h-8" style={{ background: 'var(--color-gold)' }} />
-              <h3 className="font-serif text-2xl" style={{ color: 'var(--color-charcoal)' }}>
-                RG GROUP
-              </h3>
+              <div className="bg-black z-50">
+                <Link to="/">
+                  <img
+                    src="/logo.png"
+                    alt="RG Group Logo"
+                    className="h-14 lg:h-16 w-auto object-contain"
+                  />
+                </Link>
+              </div>
             </div>
 
             <p className="text-sm leading-relaxed mb-8 max-w-xs" style={{ color: 'var(--color-slate)' }}>
@@ -27,7 +33,7 @@ const Footer = () => {
 
             {/* Social icons */}
             <div className="flex gap-3">
-              {[FaFacebookF, FaInstagram, FaLinkedinIn].map((Icon, i) => (
+              {[FaFacebookF, FaInstagramSquare, FaLinkedinIn].map((Icon, i) => (
                 <button key={i}
                   className="w-10 h-10 flex items-center justify-center transition-all duration-300 group"
                   style={{ border: '1px solid rgba(197,160,89,0.25)', background: 'transparent' }}
@@ -41,9 +47,9 @@ const Footer = () => {
                   }}
                 >
                   <Icon className="w-3.5 h-3.5 transition-colors duration-300"
-                    style={{ color: 'var(--color-gold)' }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'var(--color-white)'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'var(--color-gold)'}
+                    style={{ color: '' }}
+                  // onMouseEnter={e => e.currentTarget.style.color = 'var(--color-white)'}
+                  // onMouseLeave={e => e.currentTarget.style.color = 'var(--color-gold)'}
                   />
                 </button>
               ))}
@@ -87,8 +93,8 @@ const Footer = () => {
             <ul className="space-y-5">
               {[
                 { Icon: FaMapMarkerAlt, text: 'Greater Noida, Sector-X' },
-                { Icon: FaPhoneAlt,     text: '+91 98765 43210' },
-                { Icon: FaEnvelope,     text: 'info@rgpleiaddes.com' },
+                { Icon: FaPhoneAlt, text: '+91 98765 43210' },
+                { Icon: FaEnvelope, text: 'info@rgpleiaddes.com' },
               ].map(({ Icon, text }, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm"
                   style={{ color: 'var(--color-slate)' }}>
