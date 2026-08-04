@@ -9,7 +9,7 @@ import HeroSection from './components/HeroSection';
 import ProjectOverview from './components/ProjectOverview';
 import Configurations from './components/Configurations';
 import AmenitiesSection from './components/AmenitiesSection';
-import AmenityDetail from './components/AmenityDetail'; // Naya Detail Page component
+import AmenityDetail from './components/AmenityDetail';
 import PricingSection from './components/PricingSection';
 import FeaturesSection from './components/FeaturesSection';
 import LocationSection from './components/LocationSection';
@@ -20,6 +20,8 @@ import TestimonialSection from './components/TestimonialSection';
 import FAQSection from './components/FAQSection';
 import ContactCTA from './components/ContactCTA';
 import FloorPlanSection from './components/FloorPlanSection';
+import PrivacyPolicy from './components/PrivacyPolicy'; 
+import TermsAndConditions from './components/TermsAndConditions'; 
 
 const Home = () => (
   <>
@@ -48,8 +50,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/floor-plans" element={<div className="pt-20"><FloorPlanSection /></div>} />
+        <Route path="/privacy-policy" element={<div className="pt-20"><PrivacyPolicy /></div>} />
+        <Route path="/terms-and-conditions" element={<div className="pt-20"><TermsAndConditions /></div>} />
         {/* Dynamic Route for individual Amenity Detail Page */}
-        <Route path="/amenities/:id" element={<AmenityDetail />} />
+        <Route path="/amenities/:id" element={<div className="pt-20"><AmenityDetail /></div>} />
       </Routes>
 
       <Footer />

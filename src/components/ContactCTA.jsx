@@ -34,7 +34,7 @@ const ContactCTA = () => {
                 </div>
                 <div>
                   <p className="text-stone-500 text-[10px] uppercase tracking-widest">Direct Line</p>
-                  <p className="text-stone-200 text-sm font-medium tracking-wide">+91 98765 43210</p>
+                  <p className="text-stone-200 text-sm font-medium tracking-wide">91-72900 07308</p>
                 </div>
               </div>
 
@@ -44,7 +44,7 @@ const ContactCTA = () => {
                 </div>
                 <div>
                   <p className="text-stone-500 text-[10px] uppercase tracking-widest">Concierge Desk</p>
-                  <p className="text-stone-200 text-sm font-medium tracking-wide">concierge@rgpleiaddes.com</p>
+                  <p className="text-stone-200 text-sm font-medium tracking-wide">rggroup177@gmail.com</p>
                 </div>
               </div>
             </div>

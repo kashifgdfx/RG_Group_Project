@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const BookingModal = ({ isOpen, onClose }) => {
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
     date: "",
-    time: ""
+    time: "",
+    message: ""
   });
-
-  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,12 +23,31 @@ const BookingModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Yahan aap apna backend API ya email service integrate kar sakte hain
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      onClose();
-    }, 2500);
+    setLoading(true);
+    setError(false);
+
+    const SERVICE_ID = "service_3rybpx6";
+    const TEMPLATE_ID = "template_bqncw5h";
+    const PUBLIC_KEY = "CKXSJ8cCD04kST2gw";
+
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      .then(
+        (result) => {
+          setLoading(false);
+          setSubmitted(true);
+          setTimeout(() => {
+            setSubmitted(false);
+            setFormData({ name: "", phone: "", email: "", date: "", time: "", message: "" });
+            onClose();
+          }, 2500);
+        },
+        (error) => {
+          console.error("EmailJS Error:", error.text);
+          setLoading(false);
+          setError(true);
+        }
+      );
   };
 
   return (
@@ -46,7 +70,7 @@ const BookingModal = ({ isOpen, onClose }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="relative w-full max-w-lg bg-white border border-stone/80 shadow-2xl z-10 p-8 md:p-10 text-charcoal"
+            className="relative w-full max-w-lg bg-white border border-stone/80 shadow-2xl z-10 p-6 md:p-8 text-charcoal max-h-[90vh] overflow-y-auto"
           >
             {/* Close Button */}
             <button 
@@ -69,7 +93,7 @@ const BookingModal = ({ isOpen, onClose }) => {
             ) : (
               <>
                 {/* Header */}
-                <div className="text-center mb-8">
+                <div className="text-center mb-6">
                   <span className="text-gold uppercase tracking-[0.25em] text-[10px] font-semibold mb-2 block">
                     RG's Pleiaddes Exclusive
                   </span>
@@ -80,10 +104,10 @@ const BookingModal = ({ isOpen, onClose }) => {
                   </p>
                 </div>
 
-                {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Form - ref attached for EmailJS */}
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-3.5">
                   <div>
-                    <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1.5">
+                    <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1">
                       Full Name
                     </label>
                     <input 
@@ -93,13 +117,13 @@ const BookingModal = ({ isOpen, onClose }) => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter your full name"
-                      className="w-full px-4 py-3 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
+                      className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                     <div>
-                      <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1.5">
+                      <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1">
                         Phone Number
                       </label>
                       <input 
@@ -108,12 +132,12 @@ const BookingModal = ({ isOpen, onClose }) => {
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+91 98765 43210"
-                        className="w-full px-4 py-3 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
+                        placeholder="+91"
+                        className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1.5">
+                      <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1">
                         Email Address
                       </label>
                       <input 
@@ -122,15 +146,15 @@ const BookingModal = ({ isOpen, onClose }) => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="name@example.com"
-                        className="w-full px-4 py-3 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
+                        placeholder=""
+                        className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                     <div>
-                      <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1.5">
+                      <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1">
                         Preferred Date
                       </label>
                       <input 
@@ -139,11 +163,11 @@ const BookingModal = ({ isOpen, onClose }) => {
                         required
                         value={formData.date}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
+                        className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1.5">
+                      <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1">
                         Preferred Time
                       </label>
                       <input 
@@ -152,16 +176,38 @@ const BookingModal = ({ isOpen, onClose }) => {
                         required
                         value={formData.time}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
+                        className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
                       />
                     </div>
                   </div>
 
+                  {/* Message Field */}
+                  <div>
+                    <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1">
+                      Message / Special Request (Optional)
+                    </label>
+                    <textarea 
+                      name="message" 
+                      rows="3"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Any specific configuration or requirements..."
+                      className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors resize-none"
+                    ></textarea>
+                  </div>
+
+                  {error && (
+                    <p className="text-red-500 text-xs text-center">
+                      Something went wrong. Please try again or contact us directly.
+                    </p>
+                  )}
+
                   <button 
                     type="submit"
-                    className="w-full mt-6 bg-charcoal text-white py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-gold transition-all duration-300 shadow-md"
+                    disabled={loading}
+                    className="w-full mt-4 bg-charcoal text-white py-3.5 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-gold transition-all duration-300 shadow-md disabled:opacity-50"
                   >
-                    Confirm Booking
+                    {loading ? "Sending..." : "Confirm Booking"}
                   </button>
                 </form>
               </>

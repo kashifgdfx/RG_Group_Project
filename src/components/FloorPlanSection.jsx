@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const floorData = [
@@ -32,6 +32,15 @@ const floorData = [
 ];
 
 const FloorPlanSection = () => {
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Agar smooth scroll chahiye toh, warna 'auto' bhi kar sakte ho
+    });
+  }, []);
+
+
   const [activeTab, setActiveTab] = useState(0);
   const activeData = floorData[activeTab];
 

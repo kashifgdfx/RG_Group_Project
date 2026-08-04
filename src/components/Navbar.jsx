@@ -1,24 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import BookingModal from "./BookingModal";
 
+// Yahan apne saare logos ki list daal dein
+const logos = [
+  "/logo.png",
+  "/Rg-group.png",
+  "/logo.png",
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false); 
+      setTimeout(() => {
+        setCurrentLogoIndex((prevIndex) => (prevIndex + 1) % logos.length);
+        setFade(true); 
+      }, 300); 
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black/75 backdrop-blur-md border-b border-white/10 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-          {/* Logo */}
-          <div className="z-50">
-            <Link to="/">
+          {/* Logo with Fixed Container Width to Prevent Shifting */}
+          <div className="z-50 flex items-center w-40 lg:w-48">
+            <Link to="/" className="block w-full">
               <img
-                src="/logo.png"
+                src={logos[currentLogoIndex]}
                 alt="RG Group Logo"
-                className="h-14 lg:h-16 w-auto object-contain"
+                className={`h-14 lg:h-16 w-full object-contain object-left transition-opacity duration-300 ease-in-out ${
+                  fade ? "opacity-100" : "opacity-0"
+                }`}
               />
             </Link>
           </div>
@@ -32,7 +55,6 @@ const Navbar = () => {
               Amenities
             </HashLink>
             
-            {/* Ye alag page par jayega */}
             <Link to="/floor-plans" className="hover:text-gold transition-colors duration-300">
               Floor Plans
             </Link>
@@ -98,15 +120,19 @@ const Navbar = () => {
               Location
             </HashLink>
 
-            <button 
-              onClick={() => {
-                setIsOpen(false);
-                setIsModalOpen(true);
-              }}
-              className="btn-gold mt-4"
-            >
-              Book Site Visit
-            </button>
+           <button
+  onClick={() => {
+    setIsOpen(false);
+    setIsModalOpen(true);
+  }}
+  className="btn-gold relative overflow-hidden group mt-4"
+>
+  <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
+    Book Site Visit
+  </span>
+
+  <span className="absolute inset-0 bg-white scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
+</button>
           </div>
           
         </div>

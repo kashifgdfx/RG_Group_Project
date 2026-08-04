@@ -242,7 +242,7 @@ const FloorPlanCTA = () => {
                 style={{ background: 'var(--color-charcoal)', borderLeft: '3px solid var(--color-gold)' }}
               >
                 <p className="text-xs uppercase tracking-widest mb-1" style={{ color: 'var(--color-gold)' }}>Starting Area</p>
-                <p className="text-2xl font-serif" style={{ color: 'var(--color-white)' }}>1,850 Sq.Ft.</p>
+                <p className="text-2xl font-serif" style={{ color: 'var(--color-white)' }}>1,276 Sq.Ft.</p>
               </motion.div>
 
               {/* Floating badge — top right */}

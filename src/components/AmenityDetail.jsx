@@ -1,8 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import {useEffect} from "react";
 import { amenitiesData } from "../data/amenitiesData";
 
 const AmenityDetail = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Agar smooth scroll chahiye toh, warna 'auto' bhi kar sakte ho
+    });
+  }, []);
+
   const { id } = useParams();
   
   // Find current amenity matching URL id

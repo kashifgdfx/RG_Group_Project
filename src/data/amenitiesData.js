@@ -17,7 +17,7 @@ export const amenitiesData = [
   {
     id: "senior-citizen-lounge",
     title: "Senior Citizen Lounge",
-    img: "/amenities.png",
+    img: "/amenities.jpg",
     subtitle: "Golden Years Shining with Grace",
     description:
       "A thoughtfully designed lounge where senior residents can unwind, socialize, read, and enjoy peaceful moments in a sophisticated and comfortable environment.",
@@ -62,7 +62,7 @@ export const amenitiesData = [
   {
     id: "tennis-court",
     title: "Professional Tennis Court",
-    img: "/amenities5.png",
+    img: "/amenities5.jpg",
     subtitle: "The Court of Life",
     description:
       "Enjoy world-class tennis facilities crafted for practice, recreation, and competitive play amidst beautifully landscaped surroundings.",
@@ -77,7 +77,7 @@ export const amenitiesData = [
   {
     id: "kids-play-area",
     title: "Kids Play Area",
-    img: "/amenities6.png",
+    img: "/amenities6.jpg",
     subtitle: "Freedom in Every Smile",
     description:
       "An exciting outdoor play zone where children can learn, explore, and enjoy endless fun in a safe, colorful, and thoughtfully designed environment.",
@@ -92,7 +92,7 @@ export const amenitiesData = [
   {
     id: "palm-court",
     title: "Palm Court",
-    img: "/amenities7.png",
+    img: "/amenities7.jpg",
     subtitle: "Live the Divine Life",
     description:
       "A stunning landscaped palm court featuring elegant water features, lush greenery, and sophisticated seating areas for peaceful evenings and social gatherings.",
@@ -107,7 +107,7 @@ export const amenitiesData = [
   {
     id: "temperature-controlled-pools",
     title: "Luxury Swimming Pool",
-    img: "/amenities8.png",
+    img: "/amenities8.jpg",
     subtitle: "An Ocean of Opulence",
     description:
       "Immerse yourself in an expansive resort-style swimming pool surrounded by cascading water features, premium decks, and beautifully landscaped leisure spaces.",
@@ -122,7 +122,7 @@ export const amenitiesData = [
   {
     id: "amphitheatre",
     title: "Open Amphitheatre",
-    img: "/hero2.png",
+    img: "/amenities9.jpg",
     subtitle: "Witness Unmatched Luxury",
     description:
       "A beautifully crafted open-air amphitheatre designed for cultural events, performances, celebrations, and memorable community experiences.",
@@ -137,7 +137,7 @@ export const amenitiesData = [
   {
     id: "landscaped-gardens",
     title: "Landscaped Gardens",
-    img: "/amenities9.png",
+    img: "/amenities10.jpg",
     subtitle: "Landscaped by the Universe",
     description:
       "Breathe in the beauty of expansive green landscapes, walking trails, aromatic gardens, and peaceful outdoor spaces designed for everyday relaxation.",
@@ -152,7 +152,7 @@ export const amenitiesData = [
   {
     id: "aerial-view",
     title: "Grand Podium Lifestyle",
-    img: "/amenities10.png",
+    img: "/amenities11.jpg",
     subtitle: "Luxury Written in the Stars",
     description:
       "A spectacular podium-level lifestyle featuring premium amenities, landscaped gardens, swimming pools, sports zones, and leisure spaces seamlessly integrated into one luxurious community.",
@@ -163,4 +163,32 @@ export const amenitiesData = [
       "Skyline Views",
     ],
   },
+  {
+  id: "clubhouse-lounge",
+  title: "Luxury Clubhouse Lounge",
+  img: "/amenities13.jpg",
+  subtitle: "Where Elegance Meets Everyday Comfort",
+  description:
+    "Experience a sophisticated clubhouse lounge designed for relaxation, social gatherings, and premium leisure. Featuring elegant interiors, designer lighting, stylish seating, and tranquil garden views, it offers the perfect setting for residents to unwind in luxury.",
+  features: [
+    "Premium Lounge Seating",
+    "Designer Double-Height Lobby",
+    "Garden View Café",
+    "Luxury Interiors",
+  ],
+},
+{
+  id: "fine-dining-restaurant",
+  title: "Fine Dining Restaurant",
+  img: "/amenities12.jpg",
+  subtitle: "An Exquisite Culinary Experience",
+  description:
+    "Indulge in a refined dining experience at our elegant in-house restaurant, thoughtfully designed with luxurious interiors, ambient lighting, and a sophisticated atmosphere. Whether it's a family dinner, business meeting, or casual coffee, every moment is elevated with exceptional comfort and style.",
+  features: [
+    "Elegant Fine Dining",
+    "Designer Interiors",
+    "Premium Ambience",
+    "Indoor & Garden View Seating",
+  ],
+}
 ];

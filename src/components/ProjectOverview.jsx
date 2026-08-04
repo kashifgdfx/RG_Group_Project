@@ -7,7 +7,7 @@ const ProjectOverview = () => {
   const images = [
     "/about1.png",
     "/amenities3.png", 
-    "/amenities7.png"
+    "/amenities7.jpg"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -157,15 +157,23 @@ const ProjectOverview = () => {
         </div>
 
         {/* Brochure/Visit Buttons */}
-        <div className="flex flex-wrap justify-center gap-6">
-          <button className="bg-charcoal text-white px-10 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-gold transition-all duration-300 shadow-md">
-            Download Brochure
-          </button>
-          <button onClick={() => setIsModalOpen(true)}
-          className="bg-white border-2 border-charcoal text-charcoal px10 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-charcoal hover:text-white transition-all duration-300 shadow-md">
-            Book Free Site Visit
-          </button>
-        </div>
+     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+  <button 
+    onClick={() => {
+      window.open('/brochure.pdf', '_blank');
+    }}
+    className="w-full sm:w-auto bg-charcoal text-white px-8 md:px-10 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-gold transition-all duration-300 shadow-md text-center"
+  >
+    Download Brochure
+  </button>
+  
+  <button 
+    onClick={() => setIsModalOpen(true)}
+    className="w-full sm:w-auto bg-white border-2 border-charcoal text-charcoal px-8 md:px-10 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-charcoal hover:text-white transition-all duration-300 shadow-md text-center"
+  >
+    Book Free Site Visit
+  </button>
+</div>
 
       </div>
       <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
