@@ -12,7 +12,7 @@ const BookingModal = ({ isOpen, onClose }) => {
     name: "",
     phone: "",
     email: "",
-    date: "",
+    interest: "",
     time: "",
     message: ""
   });
@@ -38,7 +38,7 @@ const BookingModal = ({ isOpen, onClose }) => {
           setSubmitted(true);
           setTimeout(() => {
             setSubmitted(false);
-            setFormData({ name: "", phone: "", email: "", date: "", time: "", message: "" });
+            setFormData({ name: "", phone: "", email: "", interest: "", time: "", message: "" });
             onClose();
           }, 2500);
         },
@@ -146,36 +146,42 @@ const BookingModal = ({ isOpen, onClose }) => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder=""
+                        placeholder="Enter your email"
                         className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                    {/* Replaced Date with Interested Configuration */}
                     <div>
                       <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1">
-                        Preferred Date
+                        Interested In
                       </label>
-                      <input 
-                        type="date" 
-                        name="date" 
+                      <select 
+                        name="interest" 
                         required
-                        value={formData.date}
+                        value={formData.interest}
                         onChange={handleChange}
-                        className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
-                      />
+                        className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors cursor-pointer"
+                      >
+                        <option value="" disabled>Select Configuration</option>
+                        <option value="RG's Pleiaddes 3 BHK">RG's Pleiaddes 3 BHK</option>
+                        <option value="RG's Pleiaddes 4 BHK">RG's Pleiaddes 4 BHK</option>
+                        <option value="General Investment">General Investment</option>
+                      </select>
                     </div>
                     <div>
                       <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1">
-                        Preferred Time
+                        Preferred Time / Slot
                       </label>
                       <input 
-                        type="time" 
+                        type="text" 
                         name="time" 
                         required
                         value={formData.time}
                         onChange={handleChange}
+                        placeholder="e.g., Weekend / Evening"
                         className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors"
                       />
                     </div>
@@ -191,7 +197,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                       rows="3"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Any specific configuration or requirements..."
+                      placeholder="Any specific requirements..."
                       className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors resize-none"
                     ></textarea>
                   </div>
