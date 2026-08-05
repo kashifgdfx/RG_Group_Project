@@ -89,20 +89,21 @@ export const amenitiesData = [
     ],
   },
 
-  {
-    id: "palm-court",
-    title: "Palm Court",
-    img: "/amenities7.jpg",
-    subtitle: "Live the Divine Life",
-    description:
-      "A stunning landscaped palm court featuring elegant water features, lush greenery, and sophisticated seating areas for peaceful evenings and social gatherings.",
-    features: [
-      "Water Features",
-      "Palm Tree Landscape",
-      "Luxury Seating",
-      "Evening Ambience",
-    ],
-  },
+
+{
+  id: "temperature-controlled-pools",
+  title: "Indoor Swimming Pools",
+  img: "/indoor-pool.jpg",
+  subtitle: "All-Season Luxury Experience",
+  description:
+    "Take a refreshing dip in our temperature-controlled indoor pool or unwind in the luxurious outdoor resort-style pool, surrounded by elegant landscapes and premium leisure spaces.",
+  features: [
+    "Temperature-Controlled Indoor Pool",
+    "Outdoor Resort-Style Pool",
+    "Poolside Deck",
+    "Relaxation Lounge",
+  ],
+},
 
   {
     id: "temperature-controlled-pools",
@@ -116,6 +117,21 @@ export const amenitiesData = [
       "Poolside Deck",
       "Waterfalls",
       "Relaxation Lounge",
+    ],
+  },
+
+    {
+    id: "palm-court",
+    title: "Palm Court",
+    img: "/amenities7.jpg",
+    subtitle: "Live the Divine Life",
+    description:
+      "A stunning landscaped palm court featuring elegant water features, lush greenery, and sophisticated seating areas for peaceful evenings and social gatherings.",
+    features: [
+      "Water Features",
+      "Palm Tree Landscape",
+      "Luxury Seating",
+      "Evening Ambience",
     ],
   },
 

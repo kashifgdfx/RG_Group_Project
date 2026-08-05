@@ -1,47 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import BookingModal from "./BookingModal";
 
-// Yahan apne saare logos ki list daal dein
-const logos = [
-  "/logo.png",
-  "/Rg-group.png",
-  "/logo.png",
-];
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(false); 
-      setTimeout(() => {
-        setCurrentLogoIndex((prevIndex) => (prevIndex + 1) % logos.length);
-        setFade(true); 
-      }, 300); 
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
       <nav className="fixed top-0 left-0 w-full z-50 bg-black/75 backdrop-blur-md border-b border-white/10 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-          {/* Logo with Fixed Container Width to Prevent Shifting */}
-          <div className="z-50 flex items-center w-40 lg:w-48">
+          {/* Single Logo Container */}
+          <div className="z-50 flex items-center w-46 lg:w-50">
             <Link to="/" className="block w-full">
               <img
-                src={logos[currentLogoIndex]}
+                src="/logo.png"
                 alt="RG Group Logo"
-                className={`h-14 lg:h-16 w-full object-contain object-left transition-opacity duration-300 ease-in-out ${
-                  fade ? "opacity-100" : "opacity-0"
-                }`}
+                className="h-16 lg:h-18 w-full object-contain object-left"
               />
             </Link>
           </div>
@@ -120,19 +97,18 @@ const Navbar = () => {
               Location
             </HashLink>
 
-           <button
-  onClick={() => {
-    setIsOpen(false);
-    setIsModalOpen(true);
-  }}
-  className="btn-gold relative overflow-hidden group mt-4"
->
-  <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
-    Book Site Visit
-  </span>
-
-  <span className="absolute inset-0 bg-white scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
-</button>
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                setIsModalOpen(true);
+              }}
+              className="btn-gold relative overflow-hidden group mt-4"
+            >
+              <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
+                Book Site Visit
+              </span>
+              <span className="absolute inset-0 bg-white scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
+            </button>
           </div>
           
         </div>

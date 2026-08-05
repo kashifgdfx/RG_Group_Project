@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
 const stats = [
-  { label: 'Starting Area', value: '1,276 Sq.Ft.' },
-  { label: 'Configuration', value: '3 & 4 BHK' },
+  { label: 'Starting Area', value: '21,85 Sq.Ft.' },
+  { label: 'Configuration', value: '4 BHK +3T' },
   { label: 'Possession', value: 'Sep 2029' },
 ];
 
@@ -97,11 +97,14 @@ const FloorPlanCTA = () => {
               <p className="leading-relaxed mb-10 max-w-md"
                 style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.05rem' }}>
                 Discover precision-engineered floor plans designed for space, sunlight, and ventilation.
-                View detailed layouts for our 3 &amp; 4 BHK residences.
+                View detailed layouts for our 4 BHK +3T residences.
               </p>
 
               <div className="flex flex-wrap gap-4">
                 <motion.button
+                   onClick={() => {
+                      window.open('/brochure.pdf', '_blank');
+                    }}
                   whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                   className="flex items-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-[0.2em]"
                   style={{ background: 'var(--color-gold)', color: 'var(--color-charcoal)', transition: 'var(--transition-smooth)' }}
@@ -240,11 +243,11 @@ const FloorPlanCTA = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="absolute -bottom-5 -left-5 p-5 shadow-2xl z-10"
+                className="absolute -bottom-15 -left-5 p-5 shadow-2xl z-10"
                 style={{ background: 'var(--color-charcoal)', borderLeft: '3px solid var(--color-gold)' }}
               >
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: 'var(--color-gold)' }}>Starting Area</p>
-                <p className="text-2xl font-serif" style={{ color: 'var(--color-white)' }}>1,276 Sq.Ft.</p>
+                {/* <p className="text-xs uppercase tracking-widest mb-1" style={{ color: 'var(--color-gold)' }}>Starting Area</p> */}
+                <p className="text-2xl font-serif" style={{ color: 'var(--color-white)' }}>21,85 Sq.Ft.</p>
               </motion.div>
 
               {/* Floating badge — top right */}

@@ -2,45 +2,70 @@ import React, { useState, useEffect } from "react";
 import BookingModal from "./BookingModal";
 
 const ProjectOverview = () => {
-  // Slider ke liye images ka array
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const images = [
-    "/about1.png",
-    "/amenities3.png", 
-    "/amenities7.jpg"
-  ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 3 second mein auto-slide change hone ka logic
+  // Slider images aur unke corresponding dynamic badge/labels ka data array
+  const sliderData = [
+    {
+      image: "/amenities7.jpg",
+    
+      label: "70% Open Green Spaces"
+    },
+     {
+      image: "/aroma-garden.jpg",
+  
+      label: "🌿 Aroma Garden"
+    },
+    {
+      image: "/amenities3.png",
+  
+     label: "Sports & Fitness"
+    },
+    {
+      image: "/amenities8.jpg",
+   
+      label: "Luxury Indoor & Outdoor Swimming Pool"
+    }
+  ];
+
+  // 4 second mein auto-slide change hone ka logic
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderData.length);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [sliderData.length]);
 
   const highlights = [
     "Premium High-Rise Residential Towers",
-    "Spacious Luxury Apartments",
+    "Premium Luxury Apartments",
     "Modern Architectural Design",
-    "Landscaped Green Spaces",
+    "70% Landscaped Green Spaces",
+    "Beautifully Landscaped Aroma Garden",
     "Grand Entrance Lobby",
+    "Every Tower Offers Just 8 Apartments Per Floor",
     "Clubhouse with Premium Facilities",
-    "Swimming Pool",
+    "Premium Podium-Based Development",
+    "Built with Our Own Trusted Construction Expertise",
+    "Prime 3-Side Corner Location",
+    "Premium Banquet Hall (Capacity: 200–300 Guests)",
+    "Indoor & Outdoor Swimming Pools",
     "Children's Play Area",
     "Indoor & Outdoor Sports Facilities",
+    "12 ft Ceiling Height",
+    "Premium Toughened Glass Balconies",
     "Fitness Centre & Gym",
     "24×7 Security with CCTV",
-    "High-Speed Elevators",
+    "High-Speed lifts in every towers",
     "Dedicated Parking",
     "Power Backup",
     "Excellent Connectivity"
   ];
 
   return (
-    <section className="py-24 bg-stone text-charcoal">
+    <section id="overview" className="py-24 bg-stone text-charcoal">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* About Storytelling Section (Split Layout: Content Left, Image/Visual Story Right) */}
@@ -71,58 +96,50 @@ const ProjectOverview = () => {
             </div>
           </div>
 
-          {/* Right Column: Auto Slider Section */}
+          {/* Right Column: Auto Slider Section with Badge placed BELOW the Image Box */}
           <div className="lg:col-span-5 relative">
-            <div className="relative z-10 bg-white p-4 border border-stone/80 shadow-2xl">
-              <div className="relative h-[380px] w-full bg-slate-200 overflow-hidden group">
-                
-                {/* Images Mapping for Slider */}
-                {images.map((img, index) => (
+            <div className="relative z-10 bg-white  border border-stone/80 shadow-2xl">
+              
+              {/* Image Box */}
+              <div className="relative h-[400px] w-full bg-slate-200 overflow-hidden group">
+                {sliderData.map((item, index) => (
                   <img
                     key={index}
-                    src={img}
+                    src={item.image}
                     alt={`Project Overview ${index + 1}`}
                     className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
                       index === currentIndex ? "opacity-100 scale-105" : "opacity-0 scale-100"
                     }`}
                   />
                 ))}
-
               </div>
 
-              {/* Floating Badge Card inside Right Section */}
-              <div className="absolute -bottom-6 -left-6 bg-charcoal text-white p-6 shadow-xl hidden sm:block border-l-4 border-gold z-20">
-                <p className="text-gold font-bold text-2xl">70%+</p>
-                <p className="text-stone uppercase tracking-wider text-[10px]">Open Green Spaces</p>
+              {/* Dynamic Text Box placed strictly BELOW the Image Box */}
+              <div className="mt-4 bg-charcoal text-white px-6 py-4 shadow-md border-l-4 border-gold flex items-center justify-between transition-all duration-500">
+                <div>
+                  <p className="text-gold font-bold text-xl md:text-2xl">{sliderData[currentIndex].value}</p>
+                  <p className="text-stone uppercase tracking-wider text-[11px] font-medium">{sliderData[currentIndex].label}</p>
+                </div>
+                
+                {/* Slider Indicators */}
+                <div className="flex space-x-1.5">
+                  {sliderData.map((_, idx) => (
+                    <span
+                      key={idx}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        idx === currentIndex ? "w-6 bg-gold" : "w-1.5 bg-white/50"
+                      }`}
+                    ></span>
+                  ))}
+                </div>
               </div>
+
             </div>
 
             {/* Background Aesthetic Border Accent */}
             <div className="absolute -inset-4 border border-gold/30 -z-0 hidden sm:block"></div>
           </div>
 
-        </div>
-
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
-          {[
-            { label: "Project Size", value: "8 Acres" },
-            { label: "Green Spaces", value: "70%+" },
-            { label: "Towers", value: "6 Iconic" },
-            { label: "Clubhouse", value: "50k Sq.Ft" }
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="bg-white p-8 border-b-4 border-gold text-center shadow-sm hover:shadow-xl transition-all duration-300 group"
-            >
-              <h4 className="text-gold font-bold text-3xl mb-2 group-hover:scale-105 transition-transform">
-                {stat.value}
-              </h4>
-              <p className="text-charcoal uppercase tracking-wider text-xs font-semibold">
-                {stat.label}
-              </p>
-            </div>
-          ))}
         </div>
 
         {/* Project Highlights Section */}
@@ -157,23 +174,23 @@ const ProjectOverview = () => {
         </div>
 
         {/* Brochure/Visit Buttons */}
-     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-  <button 
-    onClick={() => {
-      window.open('/brochure.pdf', '_blank');
-    }}
-    className="w-full sm:w-auto bg-charcoal text-white px-8 md:px-10 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-gold transition-all duration-300 shadow-md text-center"
-  >
-    Download Brochure
-  </button>
-  
-  <button 
-    onClick={() => setIsModalOpen(true)}
-    className="w-full sm:w-auto bg-white border-2 border-charcoal text-charcoal px-8 md:px-10 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-charcoal hover:text-white transition-all duration-300 shadow-md text-center"
-  >
-    Book Free Site Visit
-  </button>
-</div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+          <button 
+            onClick={() => {
+              window.open('/brochure.pdf', '_blank');
+            }}
+            className="w-full sm:w-auto bg-charcoal text-white px-8 md:px-10 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-gold transition-all duration-300 shadow-md text-center"
+          >
+            Download Brochure
+          </button>
+          
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="w-full sm:w-auto bg-white border-2 border-charcoal text-charcoal px-8 md:px-10 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-charcoal hover:text-white transition-all duration-300 shadow-md text-center"
+          >
+            Book Free Site Visit
+          </button>
+        </div>
 
       </div>
       <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

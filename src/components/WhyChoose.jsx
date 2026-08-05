@@ -5,7 +5,7 @@ const reasons = [
   { title: "Trusted Brand", desc: "RG's Group: A legacy of quality, RERA approved, and customer-first.", icon: ShieldCheck, span: "md:col-span-2" },
   { title: "Prime Location", desc: "5 mins to Noida, upcoming metro, high appreciation.", icon: MapPin, span: "md:col-span-1" },
   { title: "Premium Lifestyle", desc: "World-class amenities, resort-style living.", icon: Sparkles, span: "md:col-span-1" },
-  { title: "Spacious Homes", desc: "Thoughtfully crafted 3 & 4 BHK designs.", icon: Building, span: "md:col-span-1" },
+  { title: "Premuim Apartments &  Homes", desc: "Thoughtfully crafted 4 BHK +3T.", icon: Building, span: "md:col-span-1" },
   { title: "Value for Money", desc: "Competitive pricing, excellent investment.", icon: TrendingUp, span: "md:col-span-2" },
 ];
 

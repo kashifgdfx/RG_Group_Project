@@ -58,9 +58,9 @@ const AmenitiesSection = () => {
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span className="text-gold uppercase tracking-widest text-[10px] font-semibold mb-1">
+                  {/* <span className="text-gold uppercase tracking-widest text-[10px] font-semibold mb-1">
                     RG's Pleiaddes
-                  </span>
+                  </span> */}
                   <h3 className="text-white font-serif text-xl md:text-2xl leading-snug">
                     {item.title}
                   </h3>

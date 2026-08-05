@@ -32,8 +32,8 @@ const slides = [
 ];
 
 const stats = [
-  { value: "1,276", label: "Sq.Ft. Starting" },
-  { value: "3 & 4", label: "BHK Options" },
+  { value: "21,85", label: "Sq.Ft. Starting" },
+  { value: "4+3T", label: "BHK Options" },
   { value: "Sep'29", label: "Possession" },
 ];
 

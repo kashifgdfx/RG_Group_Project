@@ -7,6 +7,8 @@ import {
   Building2, 
   Ruler, 
   Layers3, 
+  ConciergeBell ,
+  CircleParking,
   Users 
 } from 'lucide-react'; 
 
@@ -16,11 +18,12 @@ const features = [
   { title: "24/7 Security", desc: "Secure gated community with advanced CCTV.", icon: ShieldCheck },
   { title: "High-Speed Lifts", desc: "5 dedicated high-speed lifts per tower.", icon: GaugeCircle },
   { title: "6 Iconic Towers", desc: "Standalone design with double-height lobbies.", icon: Building2 },
-  { title: "11-12 Ft Floor Height", desc: "Superior floor-to-floor height for ventilation.", icon: Ruler },
+  { title: "12 Ft Floor Height", desc: "Superior floor-to-floor height for ventilation.", icon: Ruler },
   { title: "Exclusive Cluster", desc: "Only 8 apartments per floor for privacy.", icon: Users },
-  { title: "Fire & Service Lifts", desc: "4+1 dedicated service/fire safety elevators.", icon: Trees } // Icon map kiye
+  { title: "Fire & Service Lifts", desc: "4+1 dedicated service/fire safety elevators.", icon: Trees },
+  { title: "Significant Guest Parking", desc: "Ample parking space for residents and visitors.", icon: CircleParking },
+  { title: "Receptionist in Every Tower", desc: "Dedicated reception desk with professional assistance.", icon: ConciergeBell },
 ];
-
 const FeaturesSection = () => {
   return (
     <section className="py-28 bg-white overflow-hidden">
@@ -30,7 +33,7 @@ const FeaturesSection = () => {
           <div className="w-20 h-1 bg-gold mx-auto"></div>
           </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-stone-200 border border-stone-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-200 border border-stone-200">
           {features.map((feature, index) => {
             const Icon = feature.icon; // Icon component ko assign kiya
             return (

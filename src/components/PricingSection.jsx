@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import BookingModal from './BookingModal';
 
 const priceCollection = [
   // {
@@ -10,17 +12,19 @@ const priceCollection = [
   //   tag: "Limited Inventory"
   // },
   {
-    type: "4 BHK Apartments ",
+    type: "4 BHK +3T Apartments ",
     subTitle: "The Pleiaddes Imperial",
-    area: "2,800 - 3,500 Sq.Ft.",
-    price: "₹3.80 Cr onwards*",
+    area: "2,185 Sq.Ft.",
+    price: "₹2.8 Cr onwards*",
     highlights: ["Personal Plunge Pool", "Separate Servant Quarters", "Smart Home Automation Integrated"],
     tag: "Exclusive Release"
   }
 ];
 
 const PricingSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+    <>
     <section className="py-28 bg-[#050505] text-white relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#c5a059]/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -100,7 +104,8 @@ const PricingSection = () => {
                   </p>
                 </div>
 
-                <button className="w-full bg-transparent hover:bg-[#c5a059] text-white hover:text-[#050505] border border-[#c5a059] py-4 uppercase tracking-[0.2em] text-xs font-bold transition-all duration-500">
+                <button onClick={() => setIsModalOpen(true)}
+                className="w-full bg-transparent hover:bg-[#c5a059] text-white hover:text-[#050505] border border-[#c5a059] py-4 uppercase tracking-[0.2em] text-xs font-bold transition-all duration-500">
                   Request Private Tour
                 </button>
               </div>
@@ -119,6 +124,8 @@ const PricingSection = () => {
         </motion.p>
       </div>
     </section>
+       <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 };
 

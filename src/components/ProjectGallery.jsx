@@ -5,29 +5,38 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const gallery = [
-  { src: "/gallery-img1.jpg", label: "Living Spaces",   tag: "Interior",     caption: "Every detail curated for refined living." },
-  { src: "/hero1.jpg", label: "Master Suite",    tag: "Bedroom",      caption: "Crafted for the discerning few." },
+
+  { src: "/hero1.jpg", label: "6 Iconic Towers", tag: "Premium Residences", caption: "An address that defines elegance, comfort, and prestige." },
+  { src: "/aroma-garden.jpg", label: "Aroma Garden", tag: "Landscaping", caption: "Beautifully designed gardens that bring nature closer to home." },
+
+  {
+    src: "/gallery-img4.jpg",
+    label: "Open Amphitheatre",
+    tag: "Community Events",
+    caption: "An elegant open-air venue for cultural events, performances, and memorable community gatherings."
+  },
     {
-  src: "/gallery-image4.jpg",
-  label: "Luxury Fitness Centre",
-  tag: "Wellness",
-  caption: "Elevate your lifestyle with a state-of-the-art fitness experience."
-},
- {
-  src: "/gallery-image3.jpg",
-  label: "Luxury Retail Plaza",
-  tag: "Commercial",
-  caption: "An upscale retail destination offering shopping, cafés, and everyday conveniences at your doorstep."
-},
-  { src: "/gallery-img4.jpg", label: "Facade",          tag: "Architecture", caption: "A bold statement that commands admiration." },
+    src: "/gallery-image3.jpg",
+    label: "Luxury Retail Plaza",
+    tag: "Commercial",
+    caption: "An upscale retail destination offering shopping, cafés, and everyday conveniences at your doorstep."
+  },
+  {
+    src: "/gallery-image4.jpg",
+    label: "Luxury Fitness Centre",
+    tag: "Wellness",
+    caption: "Elevate your lifestyle with a state-of-the-art fitness experience."
+  },
+
+
 
 ];
 
 const ProjectGallery = () => {
   const triggerRef = useRef(null);
-  const trackRef   = useRef(null);
+  const trackRef = useRef(null);
   const progressRef = useRef(null);
-  const counterRef  = useRef(null);
+  const counterRef = useRef(null);
 
   useEffect(() => {
     // Media match to enable GSAP horizontal scroll only on desktop/tablet (min-width: 768px)
@@ -106,7 +115,7 @@ const ProjectGallery = () => {
           {/* Right: Image */}
           <div className="w-full md:w-1/2 h-[300px] md:h-full overflow-hidden">
             <img
-              src="/img1.jpg"
+              src="/amenities4.jpg"
               alt="Gallery Hero"
               className="w-full h-full object-cover"
             />
