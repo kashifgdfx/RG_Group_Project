@@ -23,7 +23,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigationnnn */}
           <div className="hidden md:flex items-center gap-10 text-white font-medium text-sm uppercase tracking-[0.2em]">
             <HashLink smooth to="/#overview" className="hover:text-gold transition-colors duration-300">
               Overview
@@ -41,7 +41,7 @@ const Navbar = () => {
             </HashLink>
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTAAAA */}
           <div className="hidden md:block">
             <button 
               onClick={() => setIsModalOpen(true)}
