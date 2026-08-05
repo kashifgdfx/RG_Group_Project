@@ -1,25 +1,60 @@
+import React, { useState, useRef } from "react";
 import { FaFacebookF, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import emailjs from '@emailjs/browser';
 
 const Footer = () => {
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const [error, setError] = useState(false);
 
   const exploreLinks = [
-  { name: "Residential Units", path: "/residential-units" },
-  { name: "Amenities", path: "/#amenities" },
-  { name: "Floor Plans", path: "/floor-plans" },
-  { name: "Location", path: "/#location" },
-];
-const footerLinks = [
-  {
-    name: "Privacy Policy",
-    path: "/privacy-policy",
-  },
-  {
-    name: "Terms and Conditions",
-    path: "/terms-and-conditions",
-  },
-];
+    { name: "Residential Units", path: "/residential-units" },
+    { name: "Amenities", path: "/#amenities" },
+    { name: "Floor Plans", path: "/floor-plans" },
+    { name: "Location", path: "/#location" },
+  ];
+  
+  const footerLinks = [
+    {
+      name: "Privacy Policy",
+      path: "/privacy-policy",
+    },
+    {
+      name: "Terms and Conditions",
+      path: "/terms-and-conditions",
+    },
+  ];
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(false);
+
+    const SERVICE_ID = "service_3rybpx6";
+    const TEMPLATE_ID = "template_bqncw5h";
+    const PUBLIC_KEY = "CKXSJ8cCD04kST2gw";
+
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      .then(
+        (result) => {
+          setLoading(false);
+          setSubscribed(true);
+          setTimeout(() => {
+            setSubscribed(false);
+            formRef.current.reset();
+          }, 4000);
+        },
+        (error) => {
+          console.error("EmailJS Error:", error.text);
+          setLoading(false);
+          setError(true);
+        }
+      );
+  };
 
   return (
     <footer className="relative overflow-hidden" style={{ background: 'var(--color-stone)', color: 'var(--color-charcoal)' }}>
@@ -67,8 +102,6 @@ const footerLinks = [
                 >
                   <Icon className="w-3.5 h-3.5 transition-colors duration-300"
                     style={{ color: '' }}
-                  // onMouseEnter={e => e.currentTarget.style.color = 'var(--color-white)'}
-                  // onMouseLeave={e => e.currentTarget.style.color = 'var(--color-gold)'}
                   />
                 </button>
               ))}
@@ -81,51 +114,51 @@ const footerLinks = [
           </div>
 
           {/* ── Quick Links ── */}
-       <div className="md:col-span-2">
-  <div className="flex items-center gap-2 mb-8">
-    <div
-      className="h-[1px] w-4"
-      style={{ background: "var(--color-gold)" }}
-    />
-    <h4
-      className="font-bold uppercase tracking-[0.2em] text-xs"
-      style={{ color: "var(--color-charcoal)" }}
-    >
-      Explore
-    </h4>
-  </div>
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-2 mb-8">
+              <div
+                className="h-[1px] w-4"
+                style={{ background: "var(--color-gold)" }}
+              />
+              <h4
+                className="font-bold uppercase tracking-[0.2em] text-xs"
+                style={{ color: "var(--color-charcoal)" }}
+              >
+                Explore
+              </h4>
+            </div>
 
-<ul className="space-y-4">
-  {exploreLinks.map((item, i) => (
-    <li key={i}>
-      <HashLink
-        smooth
-        to={item.path}
-        className="flex items-center gap-2 text-sm group cursor-pointer"
-        style={{
-          color: "var(--color-slate)",
-          transition: "var(--transition-smooth)",
-        }}
-        onMouseEnter={(e) =>
-          (e.currentTarget.style.color = "var(--color-gold)")
-        }
-        onMouseLeave={(e) =>
-          (e.currentTarget.style.color = "var(--color-slate)")
-        }
-      >
-        <span
-          className="w-0 h-[1px] group-hover:w-3 transition-all duration-300"
-          style={{
-            background: "var(--color-gold)",
-            display: "inline-block",
-          }}
-        />
-        {item.name}
-      </HashLink>
-    </li>
-  ))}
-</ul>
-</div>
+            <ul className="space-y-4">
+              {exploreLinks.map((item, i) => (
+                <li key={i}>
+                  <HashLink
+                    smooth
+                    to={item.path}
+                    className="flex items-center gap-2 text-sm group cursor-pointer"
+                    style={{
+                      color: "var(--color-slate)",
+                      transition: "var(--transition-smooth)",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "var(--color-gold)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = "var(--color-slate)")
+                    }
+                  >
+                    <span
+                      className="w-0 h-[1px] group-hover:w-3 transition-all duration-300"
+                      style={{
+                        background: "var(--color-gold)",
+                        display: "inline-block",
+                      }}
+                    />
+                    {item.name}
+                  </HashLink>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* ── Contact ── */}
           <div className="md:col-span-2">
@@ -152,7 +185,7 @@ const footerLinks = [
             </ul>
           </div>
 
-          {/* ── Newsletter ── */}
+          {/* ── Newsletter (EmailJS Enabled) ── */}
           <div className="md:col-span-3">
             <div className="flex items-center gap-2 mb-8">
               <div className="h-[1px] w-4" style={{ background: 'var(--color-gold)' }} />
@@ -163,26 +196,43 @@ const footerLinks = [
               Subscribe for exclusive project updates.
             </p>
 
-            <div className="flex" style={{ border: '1px solid rgba(197,160,89,0.25)' }}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="bg-transparent px-4 py-3 w-full outline-none text-sm"
-                style={{ color: 'var(--color-charcoal)' }}
-              />
-              <button
-                className="px-5 py-3 text-xs font-bold uppercase tracking-widest flex-shrink-0"
-                style={{
-                  background: 'var(--color-gold)',
-                  color: 'var(--color-white)',
-                  transition: 'var(--transition-smooth)',
-                }}
-                onMouseEnter={e => e.currentTarget.style.background = 'var(--color-charcoal)'}
-                onMouseLeave={e => e.currentTarget.style.background = 'var(--color-gold)'}
-              >
-                Join
-              </button>
-            </div>
+            <form ref={formRef} onSubmit={handleSubscribe}>
+              {subscribed ? (
+                <p className="text-xs font-semibold py-3" style={{ color: 'var(--color-gold)' }}>
+                  ✓ Thank you for subscribing!
+                </p>
+              ) : (
+                <>
+                  <div className="flex" style={{ border: '1px solid rgba(197,160,89,0.25)' }}>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="Your email address"
+                      className="bg-transparent px-4 py-3 w-full outline-none text-sm"
+                      style={{ color: 'var(--color-charcoal)' }}
+                    />
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="px-5 py-3 text-xs font-bold uppercase tracking-widest flex-shrink-0 disabled:opacity-50"
+                      style={{
+                        background: 'var(--color-gold)',
+                        color: 'var(--color-white)',
+                        transition: 'var(--transition-smooth)',
+                      }}
+                      onMouseEnter={e => !loading && (e.currentTarget.style.background = 'var(--color-charcoal)')}
+                      onMouseLeave={e => !loading && (e.currentTarget.style.background = 'var(--color-gold)')}
+                    >
+                      {loading ? "..." : "Join"}
+                    </button>
+                  </div>
+                  {error && (
+                    <p className="text-red-500 text-[10px] mt-1">Failed to subscribe. Try again.</p>
+                  )}
+                </>
+              )}
+            </form>
 
             {/* RERA badge */}
             <div className="mt-6 inline-flex items-center gap-2 px-4 py-2"
@@ -203,27 +253,27 @@ const footerLinks = [
           <p className="text-xs uppercase tracking-widest" style={{ color: 'var(--color-slate)' }}>
             © 2026 RG's Pleiaddes. All Rights Reserved.
           </p>
-       <div className="flex items-center gap-6">
-  {footerLinks.map((item, i) => (
-    <Link
-      key={i}
-      to={item.path}
-      className="text-xs uppercase tracking-widest"
-      style={{
-        color: "var(--color-slate)",
-        transition: "var(--transition-smooth)",
-      }}
-      onMouseEnter={(e) =>
-        (e.currentTarget.style.color = "var(--color-gold)")
-      }
-      onMouseLeave={(e) =>
-        (e.currentTarget.style.color = "var(--color-slate)")
-      }
-    >
-      {item.name}
-    </Link>
-  ))}
-</div>
+          <div className="flex items-center gap-6">
+            {footerLinks.map((item, i) => (
+              <Link
+                key={i}
+                to={item.path}
+                className="text-xs uppercase tracking-widest"
+                style={{
+                  color: "var(--color-slate)",
+                  transition: "var(--transition-smooth)",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "var(--color-gold)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "var(--color-slate)")
+                }
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 

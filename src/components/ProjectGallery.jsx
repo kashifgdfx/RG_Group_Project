@@ -72,7 +72,7 @@ const ProjectGallery = () => {
   }, []);
 
   return (
-    <section ref={triggerRef} className="w-full bg-white overflow-hidden md:h-screen">
+    <section ref={triggerRef} className="w-full bg-white overflow-hidden md:h-screen pt-12 md:pt-10">
       <div
         ref={trackRef}
         className="w-full flex flex-col md:flex-row md:h-screen items-center gap-8 md:gap-10 px-6 sm:px-10 md:px-16 py-16 md:py-0"

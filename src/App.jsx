@@ -22,6 +22,7 @@ import ContactCTA from './components/ContactCTA';
 import FloorPlanSection from './components/FloorPlanSection';
 import PrivacyPolicy from './components/PrivacyPolicy'; 
 import TermsAndConditions from './components/TermsAndConditions'; 
+import WhatsAppButton from './components/WhatsAppButton';
 
 const Home = () => (
   <>
@@ -44,7 +45,9 @@ const Home = () => (
 function App() {
   return (
     <Router>
+      <WhatsAppButton />
       <ScrollToTop />
+      <WhatsAppButton />
       <Navbar />
       
       <Routes>

@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 
 const stats = [
   { label: 'Starting Area', value: '1,276 Sq.Ft.' },
@@ -107,16 +108,17 @@ const FloorPlanCTA = () => {
                 >
                   <Download className="w-4 h-4" /> Download E-Brochure
                 </motion.button>
-
-                <motion.button
-                  whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-                  className="flex items-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-[0.2em]"
-                  style={{ background: 'transparent', color: 'var(--color-white)', border: '1px solid rgba(197,160,89,0.4)', transition: 'var(--transition-smooth)' }}
-                  onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--color-gold)'}
-                  onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(197,160,89,0.4)'}
-                >
-                  View Floor Plans <ArrowRight className="w-4 h-4" />
-                </motion.button>
+                <Link to='/floor-plans'>
+                  <motion.button
+                    whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+                    className="flex items-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-[0.2em]"
+                    style={{ background: 'transparent', color: 'var(--color-white)', border: '1px solid rgba(197,160,89,0.4)', transition: 'var(--transition-smooth)' }}
+                    onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--color-gold)'}
+                    onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(197,160,89,0.4)'}
+                  >
+                    View Floor Plans <ArrowRight className="w-4 h-4" />
+                  </motion.button>
+                </Link>
               </div>
             </motion.div>
 
