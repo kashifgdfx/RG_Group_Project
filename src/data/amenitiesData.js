@@ -92,7 +92,7 @@ export const amenitiesData = [
 
 {
   id: "temperature-controlled-pools",
-  title: "Indoor Swimming Pools",
+  title: "Indoor Swimming Pool",
   img: "/indoor-pool.jpg",
   subtitle: "All-Season Luxury Experience",
   description:
@@ -107,7 +107,7 @@ export const amenitiesData = [
 
   {
     id: "temperature-controlled-pools",
-    title: "Luxury Swimming Pool",
+    title: "Outdoor Swimming Pool",
     img: "/amenities8.jpg",
     subtitle: "An Ocean of Opulence",
     description:

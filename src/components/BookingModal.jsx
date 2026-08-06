@@ -166,7 +166,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                         className="w-full px-4 py-2.5 bg-stone/30 border border-stone/80 focus:border-gold focus:outline-none text-sm text-charcoal transition-colors cursor-pointer"
                       >
                         <option value="" disabled>Select Configuration</option>
-                        <option value="RG's Pleiaddes 3 BHK">RG's Pleiaddes 3 BHK</option>
+                        {/* <option value="RG's Pleiaddes 3 BHK">RG's Pleiaddes 3 BHK</option> */}
                         <option value="RG's Pleiaddes 4 BHK">RG's Pleiaddes 4 BHK</option>
                         <option value="General Investment">General Investment</option>
                       </select>

@@ -15,7 +15,7 @@ const priceCollection = [
     type: "4 BHK +3T Apartments ",
     subTitle: "The Pleiaddes Imperial",
     area: "2,185 Sq.Ft.",
-    price: "₹2.8 Cr onwards*",
+    price: "₹2.08 Cr onwards*",
     highlights: ["Personal Plunge Pool", "Separate Servant Quarters", "Smart Home Automation Integrated"],
     tag: "Exclusive Release"
   }
