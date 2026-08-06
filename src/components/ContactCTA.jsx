@@ -202,7 +202,7 @@ const ContactCTA = () => {
                       className="w-full bg-[#050505] border-b border-stone-800 py-3 text-stone-400 text-sm focus:border-[#c5a059] outline-none transition-colors duration-300 tracking-wider uppercase cursor-pointer"
                     >
                       <option value="" disabled>Interested In</option>
-                      <option value="RG's Pleiaddes 3 BHK" className="bg-[#050505] text-white">RG's Pleiaddes 3 BHK</option>
+                      {/* <option value="RG's Pleiaddes 3 BHK" className="bg-[#050505] text-white">RG's Pleiaddes 3 BHK</option> */}
                       <option value="RG's Pleiaddes 4 BHK" className="bg-[#050505] text-white">RG's Pleiaddes 4 BHK</option>
                       <option value="General Investment" className="bg-[#050505] text-white">General Investment</option>
                     </select>
