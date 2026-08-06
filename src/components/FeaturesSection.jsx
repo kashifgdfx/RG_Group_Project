@@ -9,7 +9,9 @@ import {
   Layers3, 
   ConciergeBell ,
   CircleParking,
-  Users 
+  Users,
+  Landmark ,
+  Waves 
 } from 'lucide-react'; 
 
 const features = [
@@ -23,6 +25,9 @@ const features = [
   { title: "Fire & Service Lifts", desc: "4+1 dedicated service/fire safety elevators.", icon: Trees },
   { title: "Significant Guest Parking", desc: "Ample parking space for residents and visitors.", icon: CircleParking },
   { title: "Receptionist in Every Tower", desc: "Dedicated reception desk with professional assistance.", icon: ConciergeBell },
+  { title: "Luxury Clubhouse", desc: "Premium clubhouse with world-class lifestyle amenities.", icon: Landmark },
+  { title: "Infinity Swimming Pool", desc: "Resort-style swimming pool for relaxation and recreation.", icon: Waves },
+
 ];
 const FeaturesSection = () => {
   return (

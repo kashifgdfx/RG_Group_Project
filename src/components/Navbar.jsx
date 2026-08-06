@@ -43,11 +43,17 @@ const Navbar = () => {
 
           {/* Desktop CTAAAA */}
           <div className="hidden md:block">
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="btn-gold"
+             <button
+              onClick={() => {
+                setIsOpen(false);
+                setIsModalOpen(true);
+              }}
+              className="btn-gold relative overflow-hidden group mt-4"
             >
-              Book Site Visit
+              <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
+                Book Site Visit
+              </span>
+              <span className="absolute inset-0 bg-white scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
             </button>
           </div>
 

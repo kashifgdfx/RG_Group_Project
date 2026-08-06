@@ -82,12 +82,12 @@ const Footer = () => {
           {/* ── Brand Column ── */}
           <div className="md:col-span-4">
             <div className="flex items-center gap-3 mb-6">
-              <div className="bg-black z-50">
+              <div className="">
                 <Link to="/">
                   <img
-                    src="/logo.png"
+                    src="/footer-logo.png"
                     alt="RG Group Logo"
-                    className="h-14 lg:h-16 w-auto object-contain"
+                    className="h-24 lg:h-24 w-auto object-contain"
                   />
                 </Link>
               </div>

@@ -10,7 +10,7 @@ import 'swiper/css/effect-fade';
 
 const slides = [
   {
-    img: "/hero1.jpg",
+    img: "/hero1.webp",
     tag: "Ultra-Luxury Living · Greater Noida",
     heading: ["Elevate Your", "Lifestyle"],
   },
@@ -20,12 +20,12 @@ const slides = [
     heading: ["Crafted For", "Excellence"],
   },
   {
-    img: "/hero3.jpg",
+    img: "/hero3.webp",
     tag: " 4 BHK +3T Residences · From 2,185 Sq.Ft.",
     heading: ["Luxury Begins", "The Moment You Arrive"],
   },
   {
-    img: "/hero4.png",
+    img: "/hero4.webp",
     tag: "4 BHK +3T Residences · From 2,185 Sq.Ft.",
     heading: ["Taste the Universe", "in Style."],
   },

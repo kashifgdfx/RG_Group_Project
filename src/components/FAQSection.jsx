@@ -70,7 +70,11 @@ const FAQSection = () => {
                   <span className="font-serif text-lg md:text-xl text-charcoal group-hover:text-gold transition-colors duration-300">
                     {faq.question}
                   </span>
-                  <span className={`w-8 h-8 rounded-full bg-stone/55 flex items-center justify-center text-charcoal transition-transform duration-300 ${isOpen ? "rotate-180 bg-gold text-white" : ""}`}>
+                  
+                  {/* Fixed Arrow Background Class Toggle */}
+                  <span className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    isOpen ? "rotate-180 bg-gold text-white" : "bg-stone/55 text-charcoal"
+                  }`}>
                     <svg 
                       className="w-4 h-4" 
                       fill="none" 

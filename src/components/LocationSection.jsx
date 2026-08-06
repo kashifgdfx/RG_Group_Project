@@ -97,7 +97,7 @@ const LocationSection = () => {
                 transition={{ duration: 0.7, delay: 0.15 }}
                 className="text-white/60 text-sm leading-relaxed"
               >
-                Nestled in Sector 1, Noida, RG's Pleiaddes shines at the pinnacle of connectivity and convenience, offering seamless access to the best the city has to offer. Just minutes from key business hubs, entertainment centers, and elite schools.
+                Nestled in Sector 1, Greater Noida West, RG's Pleiaddes stands at the pinnacle of connectivity and convenience, offering seamless access to the city's finest business hubs, entertainment destinations, healthcare facilities, and premier educational institutions—all just minutes away.
               </motion.p>
             </div>
 

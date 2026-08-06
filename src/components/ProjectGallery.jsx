@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const gallery = [
 
-  { src: "/hero1.jpg", label: "6 Iconic Towers", tag: "Premium Residences", caption: "An address that defines elegance, comfort, and prestige." },
+  { src: "/hero1.webp", label: "6 Iconic Towers", tag: "Premium Residences", caption: "An address that defines elegance, comfort, and prestige." },
   { src: "/aroma-garden.jpg", label: "Aroma Garden", tag: "Landscaping", caption: "Beautifully designed gardens that bring nature closer to home." },
 
   {
@@ -27,6 +27,24 @@ const gallery = [
     tag: "Wellness",
     caption: "Elevate your lifestyle with a state-of-the-art fitness experience."
   },
+  {
+  src: "/indoor-pool.jpg",
+  label: "Indoor Swimming Pool",
+  tag: "Relaxation",
+  caption: "Experience year-round relaxation in a luxurious temperature-controlled indoor pool."
+},
+{
+  src: "/amenities8.jpg",
+  label: "Outdoor Swimming Pool",
+  tag: "Lifestyle",
+  caption: "Unwind in a resort-style outdoor infinity pool surrounded by lush landscapes."
+},
+{
+  src: "/amenities12.jpg",
+  label: "Grand Banquet Hall",
+  tag: "Celebration",
+  caption: "Host unforgettable celebrations and events in an elegant, spacious banquet hall."
+},
 
 
 
