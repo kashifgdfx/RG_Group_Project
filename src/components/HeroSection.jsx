@@ -21,12 +21,12 @@ const slides = [
   },
   {
     img: "/hero3.jpg",
-    tag: "3 & 4 BHK Residences · From 1,276 Sq.Ft.",
+    tag: " 4 BHK +3T Residences · From 2,185 Sq.Ft.",
     heading: ["Luxury Begins", "The Moment You Arrive"],
   },
   {
     img: "/hero4.png",
-    tag: "3 & 4 BHK Residences · From 1,850 Sq.Ft.",
+    tag: "4 BHK +3T Residences · From 2,185 Sq.Ft.",
     heading: ["Taste the Universe", "in Style."],
   },
 ];
