@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { FaFacebookF, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaFacebookF, FaInstagramSquare, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import emailjs from '@emailjs/browser';
@@ -27,6 +27,18 @@ const Footer = () => {
       path: "/terms-and-conditions",
     },
   ];
+
+  const socialLinks = [
+  {
+    icon: FaFacebookF,
+    link: "https://www.facebook.com/profile.php?id=61592507863484#",
+  },
+  {
+    icon: FaInstagramSquare,
+    link: "https://www.instagram.com/rggroup177/",
+  },
+ 
+];
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -86,26 +98,31 @@ const Footer = () => {
             </p>
 
             {/* Social icons */}
-            <div className="flex gap-3">
-              {[FaFacebookF, FaInstagramSquare, FaLinkedinIn].map((Icon, i) => (
-                <button key={i}
-                  className="w-10 h-10 flex items-center justify-center transition-all duration-300 group"
-                  style={{ border: '1px solid rgba(197,160,89,0.25)', background: 'transparent' }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.background = 'var(--color-gold)';
-                    e.currentTarget.style.borderColor = 'var(--color-gold)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.background = 'transparent';
-                    e.currentTarget.style.borderColor = 'rgba(197,160,89,0.25)';
-                  }}
-                >
-                  <Icon className="w-3.5 h-3.5 transition-colors duration-300"
-                    style={{ color: '' }}
-                  />
-                </button>
-              ))}
-            </div>
+          <div className="flex gap-3">
+  {socialLinks.map(({ icon: Icon, link }, i) => (
+    <a
+      key={i}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 flex items-center justify-center transition-all duration-300"
+      style={{
+        border: "1px solid rgba(197,160,89,0.25)",
+        background: "transparent",
+      }}
+      onMouseEnter={(e) => {
+        // e.currentTarget.style.background = "var(--color-gold)";
+        e.currentTarget.style.borderColor = "var(--color-gold)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = "transparent";
+        e.currentTarget.style.borderColor = "rgba(197,160,89,0.25)";
+      }}
+    >
+      <Icon className="w-3.5 h-3.5 text-[#C5A059] transition-colors duration-300" />
+    </a>
+  ))}
+</div>
           </div>
 
           {/* ── Divider ── */}
