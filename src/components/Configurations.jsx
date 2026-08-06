@@ -27,7 +27,7 @@ const Configurations = () => {
         "Designer Master Suite",
         "Premium Toughened Glass Balconies"
       ],
-      imageUrl: "/hero1.jpg",
+      imageUrl: "/hero1.webp",
 
     },
  
