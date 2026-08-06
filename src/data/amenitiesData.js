@@ -1,4 +1,19 @@
 export const amenitiesData = [
+
+  {
+  id: "exclusive-floor-privacy",
+  title: "Private Living Experience",
+  img: "/hero1.webp",
+  subtitle: "Just 8 Residences Per Floor",
+  description:
+    "Enjoy a refined lifestyle with only eight exclusive residences on each floor, offering greater privacy, reduced footfall, and an elevated sense of luxury.",
+  features: [
+    "Just 8 Residences Per Floor",
+    "Low-Density Luxury",
+    "Enhanced Privacy",
+    "Premium Floor Planning",
+  ],
+},
   {
     id: "wellness-spa-center",
     title: "Wellness & Spa Centre",
