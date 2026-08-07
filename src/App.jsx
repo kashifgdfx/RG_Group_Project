@@ -34,7 +34,8 @@ const Home = () => (
     <div id="amenities"><AmenitiesSection /></div>
     <div id="pricing"><PricingSection /></div>
     <div id="features"><FeaturesSection /></div>
-    <div id="location"><LocationSection /></div>
+    {/* <div id="location"><LocationSection /></div> */}
+  
     <div id="gallery"><ProjectGallery /></div>
     <div id="why-choose"><WhyChoose /></div>
     <div id="floor-cta"><FloorPlanCTA /></div>
@@ -50,11 +51,13 @@ function App() {
       <WhatsAppButton />
       <ScrollToTop />
       <WhatsAppButton />
+      
       <Navbar />
       
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/floor-plans" element={<div className="pt-20"><FloorPlanSection /></div>} />
+          <Route path="/location" element={<div className=""><LocationSection /></div>} />
         <Route path="/privacy-policy" element={<div className="pt-20"><PrivacyPolicy /></div>} />
         <Route path="/terms-and-conditions" element={<div className="pt-20"><TermsAndConditions /></div>} />
         {/* Dynamic Route for individual Amenity Detail Page */}

@@ -1,31 +1,33 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import FAQSection from "./FAQSection";
+import PremiumCtaButton from "./PremiumCtaButton";
 
 const floorPlansData = [
   {
     id: 1,
-    title: "4 BHK + 3 Toilets - Type 1",
+    title: "4 BHK + 3 Toilets",
     typicalPlan: "/floor1.png",
     carpetArea: "107.540 Sq. Mtr. (1159 Sq. Ft.)",
     builtUpArea: "148.160 Sq. Mtr. (1595 Sq. Ft.)",
     totalArea: "202.969 Sq. Mtr. (2185 Sq. Ft.)",
   },
-  {
-    id: 2,
-    title: "4 BHK + 3 Toilets - Type 2",
-    typicalPlan: "/floor2.png",
-    carpetArea: "110.000 Sq. Mtr. (1184 Sq. Ft.)",
-    builtUpArea: "150.000 Sq. Mtr. (1614 Sq. Ft.)",
-    totalArea: "210.000 Sq. Mtr. (2260 Sq. Ft.)",
-  },
-  {
-    id: 3,
-    title: "4 BHK + 3 Toilets - Type 3",
-    typicalPlan: "/floor3.png",
-    carpetArea: "107.540 Sq. Mtr. (1159 Sq. Ft.)",
-    builtUpArea: "148.160 Sq. Mtr. (1595 Sq. Ft.)",
-    totalArea: "202.969 Sq. Mtr. (2185 Sq. Ft.)",
-  },
+  // {
+  //   id: 2,
+  //   title: "4 BHK + 3 Toilets - Type 2",
+  //   typicalPlan: "/floor2.png",
+  //   carpetArea: "110.000 Sq. Mtr. (1184 Sq. Ft.)",
+  //   builtUpArea: "150.000 Sq. Mtr. (1614 Sq. Ft.)",
+  //   totalArea: "210.000 Sq. Mtr. (2260 Sq. Ft.)",
+  // },
+  // {
+  //   id: 3,
+  //   title: "4 BHK + 3 Toilets - Type 3",
+  //   typicalPlan: "/floor3.png",
+  //   carpetArea: "107.540 Sq. Mtr. (1159 Sq. Ft.)",
+  //   builtUpArea: "148.160 Sq. Mtr. (1595 Sq. Ft.)",
+  //   totalArea: "202.969 Sq. Mtr. (2185 Sq. Ft.)",
+  // },
 ];
 
 const FloorPlanSection = () => {
@@ -37,6 +39,7 @@ const FloorPlanSection = () => {
   }, []);
 
   return (
+    <>
     <section
       className="py-24 bg-stone text-charcoal relative overflow-hidden"
       id="floor-plans"
@@ -81,9 +84,9 @@ const FloorPlanSection = () => {
               {/* Left Image */}
               <div className="lg:col-span-7">
                 <div className="relative group overflow-hidden bg-stone/20 border border-stone/60 p-3 shadow-inner">
-                  <div className="absolute top-4 left-4 bg-charcoal/80 text-white px-3 py-1 text-[10px] uppercase tracking-widest backdrop-blur-sm border border-gold/30 z-10">
+                  {/* <div className="absolute top-4 left-4 bg-charcoal/80 text-white px-3 py-1 text-[10px] uppercase tracking-widest backdrop-blur-sm border border-gold/30 z-10">
                     Floor Plan {index + 1}
-                  </div>
+                  </div> */}
 
                   <img
                     src={plan.typicalPlan}
@@ -153,6 +156,11 @@ const FloorPlanSection = () => {
         </div>
       </div>
     </section>
+
+<PremiumCtaButton/>
+
+
+    </>
   );
 };
 

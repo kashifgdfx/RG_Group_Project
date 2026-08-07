@@ -32,18 +32,18 @@ const Navbar = () => {
               Amenities
             </HashLink>
             
-            <Link to="/floor-plans" className="hover:text-gold transition-colors duration-300">
+            <Link  to="/floor-plans" className="hover:text-gold transition-colors duration-300">
               Floor Plans
             </Link>
 
-            <HashLink smooth to="/#location" className="hover:text-gold transition-colors duration-300">
+            <Link  to="/location" className="hover:text-gold transition-colors duration-300">
               Location
-            </HashLink>
+            </Link>
           </div>
 
           {/* Desktop CTAAAA */}
           <div className="hidden md:block">
-             <button
+                <button
               onClick={() => {
                 setIsOpen(false);
                 setIsModalOpen(true);
@@ -88,20 +88,21 @@ const Navbar = () => {
               Amenities
             </HashLink>
             <Link
+              
               to="/floor-plans"
               onClick={() => setIsOpen(false)}
               className="text-white text-2xl uppercase tracking-widest hover:text-gold transition-colors"
             >
               Floor Plans
             </Link>
-            <HashLink
-              smooth
-              to="/#location"
+            <Link
+              
+              to="/location"
               onClick={() => setIsOpen(false)}
               className="text-white text-2xl uppercase tracking-widest hover:text-gold transition-colors"
             >
               Location
-            </HashLink>
+            </Link>
 
             <button
               onClick={() => {

@@ -4,20 +4,41 @@ import { motion, AnimatePresence } from "framer-motion";
 const faqsData = [
   {
     question: "Where is RG's Pleiaddes located?",
-    answer: "Sector-1, Greater Noida West."
+    answer: "RG's Pleiaddes is strategically located in Sector-1, Greater Noida West, offering excellent connectivity to Noida, Delhi, Ghaziabad, and major expressways."
   },
   {
     question: "What type of project is this?",
-    answer: "Premium residential apartments designed for modern and luxurious urban living."
+    answer: "RG's Pleiaddes is a premium residential apartment project designed for modern, luxurious, and comfortable urban living."
   },
   {
     question: "Does the project offer modern amenities?",
-    answer: "Yes, it features a grand clubhouse, swimming pool, fully equipped gymnasium, landscaped gardens, sports facilities, children's play area, and much more."
+    answer: "Yes. Residents can enjoy a luxurious clubhouse, swimming pool, gymnasium, landscaped gardens, children's play area, indoor games, sports facilities, jogging track, and more."
   },
   {
     question: "Is the project well connected?",
-    answer: "Yes, it offers excellent connectivity to Noida, Delhi, Ghaziabad, major expressways, top-tier schools, hospitals, and shopping destinations."
-  }
+    answer: "Yes. The project enjoys excellent connectivity to Noida, Delhi, Ghaziabad, FNG Expressway, NH-24, schools, hospitals, shopping malls, and metro stations."
+  },
+  {
+    question: "What apartment configurations are available?",
+    answer: "The project offers thoughtfully designed premium residences with spacious layouts. Please contact our sales team for the latest configuration availability."
+  },
+  {
+    question: "Is there dedicated parking available?",
+    answer: "Yes. The project provides ample parking space for residents and visitors with a well-planned parking management system."
+  },
+  {
+    question: "Does the project have 24×7 security?",
+    answer: "Yes. The community is equipped with round-the-clock security, CCTV surveillance, controlled access points, and professional security personnel."
+  },
+  {
+    question: "Are there green spaces within the project?",
+    answer: "Yes. The project features beautifully landscaped gardens, open green areas, walking paths, and recreational spaces for residents."
+  },
+  {
+    question: "How far is the nearest metro station?",
+    answer: "The nearest metro connectivity is available via Noida Sector-81 Metro Station, offering convenient access to the NCR region."
+  },
+
 ];
 
 const FAQSection = () => {
