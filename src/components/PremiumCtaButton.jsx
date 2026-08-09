@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import BookingModal from './BookingModal'; // Apne BookingModal component ka path yaha import kar lein
+import BookingModal from './BookingModal';
+import BrochureLeadModal from "./BrochureLeadModal"; // Apne BookingModal component ka path yaha import kar lein
 
 const FooterCtaSection = ({ onBrochureClick }) => {
-  // Booking Modal ke liye state
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // Agar mobile menu/drawer ka state hai to use yaha rakh sakte hain (jaise setIsOpen)
+ 
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
+
+
+  const handleBrochureClick = () => {
+  const brochureLead = localStorage.getItem("brochureLead");
+
+  if (brochureLead) {
+    window.open("/brochure.pdf", "_blank");
+  } else {
+    setIsBrochureModalOpen(true);
+  }
+};
 
   return (
     <>
@@ -78,9 +91,7 @@ const FooterCtaSection = ({ onBrochureClick }) => {
                 {/* Primary CTA - Download Brochure */}
                 <motion.button
                    whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-                    onClick={() => {
-                      window.open('/brochure.pdf', '_blank');
-                    }}
+                    onClick={handleBrochureClick}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full sm:w-auto lg:w-full relative group overflow-hidden rounded-sm p-[1px] focus:outline-none cursor-pointer"
@@ -137,6 +148,10 @@ const FooterCtaSection = ({ onBrochureClick }) => {
       </section>
 
       {/* Booking Modal Integration */}
+      <BrochureLeadModal
+  isOpen={isBrochureModalOpen}
+  onClose={() => setIsBrochureModalOpen(false)}
+/>
       <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );

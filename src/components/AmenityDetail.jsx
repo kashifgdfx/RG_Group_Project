@@ -1,13 +1,31 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {useEffect} from "react";
+import {useEffect,useState} from "react";
 import { amenitiesData } from "../data/amenitiesData";
+import PremiumCtaButton from "./PremiumCtaButton";
+import { useNavigate } from "react-router-dom";
+import FloorPlanLeadModal from "./FloorPlanLeadModal";
 
 const AmenityDetail = () => {
+  const [isFloorPlanModalOpen, setIsFloorPlanModalOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+const handleFloorPlanClick = () => {
+  const leadSubmitted = localStorage.getItem("floorPlanLead");
+
+  if (leadSubmitted) {
+    navigate("/floor-plans");
+  } else {
+    setIsFloorPlanModalOpen(true);
+  }
+};
+
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth' // Agar smooth scroll chahiye toh, warna 'auto' bhi kar sakte ho
+      behavior: 'smooth' 
     });
   }, []);
 
@@ -75,18 +93,19 @@ const AmenityDetail = () => {
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4">
-              <Link 
+              {/* <Link 
+              
                 to="/#contact" 
                 className="bg-charcoal text-white px-8 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-gold transition-all duration-300 shadow-md"
               >
                 Book a Private Tour
-              </Link>
-              <Link 
-                to="/floor-plans" 
-                className="border border-charcoal text-charcoal px-8 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-charcoal hover:text-white transition-all duration-300"
-              >
-                View Floor Plans
-              </Link>
+              </Link> */}
+           <button
+  onClick={handleFloorPlanClick}
+  className="border border-charcoal text-charcoal px-8 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-charcoal hover:text-white transition-all duration-300"
+>
+  View Floor Plans
+</button>
             </div>
           </motion.div>
 
@@ -150,7 +169,7 @@ const AmenityDetail = () => {
         </motion.div>
 
         {/* Bottom Call to Action Banner */}
-        <motion.div 
+        {/* <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -176,7 +195,12 @@ const AmenityDetail = () => {
               </Link>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
+        <FloorPlanLeadModal
+  isOpen={isFloorPlanModalOpen}
+  onClose={() => setIsFloorPlanModalOpen(false)}
+/>
+        <PremiumCtaButton/>
 
       </div>
     </div>

@@ -2,10 +2,27 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import BookingModal from "./BookingModal";
+import FloorPlanLeadModal from "./FloorPlanLeadModal";
+import { useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFloorPlanModalOpen, setIsFloorPlanModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleFloorPlanClick = () => {
+  const leadSubmitted = localStorage.getItem("floorPlanLead");
+
+  if (leadSubmitted) {
+    navigate("/floor-plans");
+  } else {
+    setIsFloorPlanModalOpen(true);
+  }
+};
+
+
 
   return (
     <>
@@ -32,9 +49,12 @@ const Navbar = () => {
               Amenities
             </HashLink>
             
-            <Link  to="/floor-plans" className="hover:text-gold transition-colors duration-300">
-              Floor Plans
-            </Link>
+            <button
+  onClick={handleFloorPlanClick}
+  className="hover:text-gold transition-colors duration-300"
+>
+  Floor Plans
+</button>
 
             <Link  to="/location" className="hover:text-gold transition-colors duration-300">
               Location
@@ -87,14 +107,15 @@ const Navbar = () => {
             >
               Amenities
             </HashLink>
-            <Link
-              
-              to="/floor-plans"
-              onClick={() => setIsOpen(false)}
-              className="text-white text-2xl uppercase tracking-widest hover:text-gold transition-colors"
-            >
-              Floor Plans
-            </Link>
+        <button
+  onClick={() => {
+    setIsOpen(false);
+    handleFloorPlanClick();
+  }}
+  className="text-white text-2xl uppercase tracking-widest hover:text-gold transition-colors"
+>
+  Floor Plans
+</button>
             <Link
               
               to="/location"
@@ -120,6 +141,11 @@ const Navbar = () => {
           
         </div>
       </nav>
+
+      <FloorPlanLeadModal
+  isOpen={isFloorPlanModalOpen}
+  onClose={() => setIsFloorPlanModalOpen(false)}
+/>
 
       <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>

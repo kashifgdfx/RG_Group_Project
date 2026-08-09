@@ -18,7 +18,7 @@ const Configurations = () => {
     {
       title: "Grand 4 BHK + 3T",
       subTitle: "The Epitome of Exclusivity",
-      area: "2185 Sq.Ft.",
+      // area: "2185 Sq.Ft.",
       price: "20 Lakh*",
       desc: "Experience expansive living spaces, premium finishes, and breathtaking views reserved for the privileged few.",
       features: [
@@ -34,7 +34,7 @@ const Configurations = () => {
     {
       title: "4 BHK Penthouse Style",
       subTitle: "Premium Luxury Apartments",
-      area: "2185 Sq.Ft.",
+      // area: "2185 Sq.Ft.",
       price: "20 Lakh*",
       desc: "Indulge in sky-high luxury featuring majestic ceiling heights, private terrace garden space, and elite aesthetics.",
       features: [

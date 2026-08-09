@@ -175,14 +175,14 @@ const ProjectOverview = () => {
 
         {/* Brochure/Visit Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-          <button 
+          {/* <button 
             onClick={() => {
               window.open('/brochure.pdf', '_blank');
             }}
             className="w-full sm:w-auto bg-charcoal text-white px-8 md:px-10 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-gold transition-all duration-300 shadow-md text-center"
           >
             Download Brochure
-          </button>
+          </button> */}
           
           <button 
             onClick={() => setIsModalOpen(true)}

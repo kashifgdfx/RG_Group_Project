@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Download, CalendarCheck, ChevronDown, QrCode } from 'lucide-react';
 import BookingModal from './BookingModal';
+import BrochureLeadModal from './BrochureLeadModal';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
@@ -32,7 +33,7 @@ const slides = [
 ];
 
 const stats = [
-  { value: "21,85", label: "Sq.Ft. Starting" },
+  // { value: "21,85", label: "Sq.Ft. Starting" },
   { value: "4+3T", label: "BHK Options" },
   { value: "Sep'29", label: "Possession" },
 ];
@@ -47,8 +48,19 @@ const contentVariants = {
 };
 
 const HeroSection = () => {
+  const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleBrochureClick = () => {
+  const brochureLead = localStorage.getItem("brochureLead");
+
+  if (brochureLead) {
+    window.open("/brochure.pdf", "_blank");
+  } else {
+    setIsBrochureModalOpen(true);
+  }
+};
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -151,7 +163,7 @@ const HeroSection = () => {
                   <motion.button
                     whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                     onClick={() => {
-                      window.open('/brochure.pdf', '_blank');
+                      handleBrochureClick();
                     }}
                     className="flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]"
                     style={{
@@ -295,6 +307,10 @@ const HeroSection = () => {
           scrollbar-width: none;
         }
       `}</style>
+      <BrochureLeadModal
+  isOpen={isBrochureModalOpen}
+  onClose={() => setIsBrochureModalOpen(false)}
+/>
       <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );

@@ -14,7 +14,7 @@ const priceCollection = [
   {
     type: "4 BHK +3T Apartments ",
     subTitle: "The Pleiaddes Imperial",
-    area: "2,185 Sq.Ft.",
+    // area: "2,185 Sq.Ft.",
     price: "₹2.08 Cr*",
     highlights: ["Personal Plunge Pool", "Separate Servant Quarters", "Smart Home Automation Integrated"],
     tag: "Exclusive Release"
@@ -78,9 +78,9 @@ const PricingSection = () => {
                 <h3 className="text-3xl font-serif mb-4 text-white group-hover:text-[#c5a059] transition-colors duration-300">
                   {item.type}
                 </h3>
-                <p className="text-stone-400 text-sm tracking-wider uppercase mb-8">
+                {/* <p className="text-stone-400 text-sm tracking-wider uppercase mb-8">
                   Super Area: {item.area}
-                </p>
+                </p> */}
 
                 <div className="w-full h-[1px] bg-white/10 mb-8"></div>
 

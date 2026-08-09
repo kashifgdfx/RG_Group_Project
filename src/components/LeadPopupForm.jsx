@@ -56,22 +56,23 @@ const LeadPopupForm = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/70 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-charcoal/70 backdrop-blur-sm">
           {/* Backdrop Click to Close */}
           <div className="absolute inset-0" onClick={onClose}></div>
 
-          {/* Modal Content */}
+          {/* Modal Content with Responsive Height and Scrolling */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="relative w-full max-w-lg bg-white border border-stone/80 shadow-2xl rounded-sm p-8 md:p-10 z-10 text-charcoal"
+            className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-white border border-stone/80 shadow-2xl rounded-sm p-5 sm:p-8 md:p-10 z-10 text-charcoal my-auto"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-slate hover:text-charcoal transition text-xl font-bold w-8 h-8 flex items-center justify-center bg-stone/30 rounded-full"
+              className="absolute top-4 right-4 text-slate hover:text-charcoal transition text-xl font-bold w-8 h-8 flex items-center justify-center bg-stone/30 rounded-full z-20"
+              aria-label="Close modal"
             >
               &times;
             </button>
@@ -79,20 +80,20 @@ const LeadPopupForm = ({ isOpen, onClose }) => {
             {!submitted ? (
               <div>
                 {/* Header */}
-                <div className="text-center mb-6">
+                <div className="text-center mb-5 sm:mb-6">
                   <span className="text-gold uppercase tracking-[0.2em] text-[10px] font-semibold block mb-1">
                     Exclusive Access
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-serif text-charcoal">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-charcoal">
                     Download Detailed Floor Plans & Pricing
                   </h3>
-                  <p className="text-slate text-xs md:text-sm mt-2">
+                  <p className="text-slate text-xs sm:text-sm mt-2">
                     Fill in your details below to receive the complete brochure and price sheet directly.
                   </p>
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                   <div>
                     <label className="block text-[10px] uppercase tracking-widest text-slate font-semibold mb-1">
                       Full Name <span className="text-red-500">*</span>
@@ -164,14 +165,14 @@ const LeadPopupForm = ({ isOpen, onClose }) => {
               </div>
             ) : (
               /* Success State */
-              <div className="text-center py-8 space-y-4">
+              <div className="text-center py-6 sm:py-8 space-y-4">
                 <div className="w-16 h-16 bg-gold/20 text-gold rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
                   ✓
                 </div>
-                <h3 className="text-2xl font-serif text-charcoal">
+                <h3 className="text-xl sm:text-2xl font-serif text-charcoal">
                   Thank You, {formData.name}!
                 </h3>
-                <p className="text-slate text-sm max-w-sm mx-auto">
+                <p className="text-slate text-xs sm:text-sm max-w-sm mx-auto">
                   Your request has been successfully registered. Our sales team will share the floor plans and pricing details on <strong className="text-charcoal">+91 {formData.phone}</strong> shortly.
                 </p>
                 <button

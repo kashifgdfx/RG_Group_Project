@@ -1,10 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+// import useNavigate from "react-router-dom";
+import FloorPlanLeadModal from './FloorPlanLeadModal';
+import BrochureLeadModal from './BrochureLeadModal';
 
 const stats = [
-  { label: 'Starting Area', value: '21,85 Sq.Ft.' },
+  // { label: 'Starting Area', value: '21,85 Sq.Ft.' },
   { label: 'Configuration', value: '4 BHK +3T' },
   { label: 'Possession', value: 'Sep 2029' },
 ];
@@ -19,6 +22,30 @@ const slides = [
 const FloorPlanCTA = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const navigate = useNavigate();
+
+const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
+const [isFloorPlanModalOpen, setIsFloorPlanModalOpen] = useState(false);
+
+const handleBrochureClick = () => {
+  const brochureLead = localStorage.getItem("brochureLead");
+
+  if (brochureLead) {
+    window.open("/brochure.pdf", "_blank");
+  } else {
+    setIsBrochureModalOpen(true);
+  }
+};
+
+const handleFloorPlanClick = () => {
+  const floorPlanLead = localStorage.getItem("floorPlanLead");
+
+  if (floorPlanLead) {
+    navigate("/floor-plans");
+  } else {
+    setIsFloorPlanModalOpen(true);
+  }
+};
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -50,6 +77,7 @@ const FloorPlanCTA = () => {
   };
 
   return (
+    <>
     <section className="relative py-28 overflow-hidden" style={{ background: 'var(--color-charcoal)' }}>
 
       {/* Background layers */}
@@ -102,26 +130,29 @@ const FloorPlanCTA = () => {
 
               <div className="flex flex-wrap gap-4">
                 <motion.button
-                   onClick={() => {
-                      window.open('/brochure.pdf', '_blank');
-                    }}
+                  
+                  onClick={handleBrochureClick}
+                    
                   whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                   className="flex items-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-[0.2em]"
                   style={{ background: 'var(--color-gold)', color: 'var(--color-charcoal)', transition: 'var(--transition-smooth)' }}
                 >
                   <Download className="w-4 h-4" /> Download E-Brochure
                 </motion.button>
-                <Link to='/floor-plans'>
-                  <motion.button
-                    whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-                    className="flex items-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-[0.2em]"
-                    style={{ background: 'transparent', color: 'var(--color-white)', border: '1px solid rgba(197,160,89,0.4)', transition: 'var(--transition-smooth)' }}
-                    onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--color-gold)'}
-                    onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(197,160,89,0.4)'}
-                  >
-                    View Floor Plans <ArrowRight className="w-4 h-4" />
-                  </motion.button>
-                </Link>
+              <motion.button
+  onClick={handleFloorPlanClick}
+  whileHover={{ scale: 1.03 }}
+  whileTap={{ scale: 0.97 }}
+  className="flex items-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-[0.2em]"
+  style={{
+    background: 'transparent',
+    color: 'var(--color-white)',
+    border: '1px solid rgba(197,160,89,0.4)',
+    transition: 'var(--transition-smooth)'
+  }}
+>
+  View Floor Plans <ArrowRight className="w-4 h-4" />
+</motion.button>
               </div>
             </motion.div>
 
@@ -238,17 +269,17 @@ const FloorPlanCTA = () => {
               </div>
 
               {/* Floating badge — bottom left */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
                 viewport={{ once: true }}
                 className="absolute -bottom-15 -left-5 p-5 shadow-2xl z-10"
                 style={{ background: 'var(--color-charcoal)', borderLeft: '3px solid var(--color-gold)' }}
-              >
+              > */}
                 {/* <p className="text-xs uppercase tracking-widest mb-1" style={{ color: 'var(--color-gold)' }}>Starting Area</p> */}
-                <p className="text-2xl font-serif" style={{ color: 'var(--color-white)' }}>21,85 Sq.Ft.</p>
-              </motion.div>
+                {/* <p className="text-2xl font-serif" style={{ color: 'var(--color-white)' }}>21,85 Sq.Ft.</p> */}
+              {/* </motion.div> */}
 
               {/* Floating badge — top right */}
               <motion.div
@@ -273,6 +304,17 @@ const FloorPlanCTA = () => {
       <div className="absolute bottom-0 left-0 right-0 h-[1px]"
         style={{ background: 'linear-gradient(90deg, transparent, var(--color-gold), transparent)' }} />
     </section>
+
+    <FloorPlanLeadModal
+  isOpen={isFloorPlanModalOpen}
+  onClose={() => setIsFloorPlanModalOpen(false)}
+/>
+
+<BrochureLeadModal
+  isOpen={isBrochureModalOpen}
+  onClose={() => setIsBrochureModalOpen(false)}
+/>
+    </>
   );
 };
 
