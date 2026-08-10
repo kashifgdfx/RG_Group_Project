@@ -11,10 +11,10 @@ const Footer = () => {
   const [error, setError] = useState(false);
 
   const exploreLinks = [
-    { name: "Residential Units", path: "/residential-units" },
+    // { name: "Residential Units", path: "/residential-units" },
     { name: "Amenities", path: "/#amenities" },
-    { name: "Floor Plans", path: "/floor-plans" },
-    { name: "Location", path: "/#location" },
+    { name: "About", path: "/#overview" },
+    { name: "Location", path: "/location" },
   ];
   
   const footerLinks = [

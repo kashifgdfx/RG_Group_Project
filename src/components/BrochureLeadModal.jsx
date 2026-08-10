@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 const BrochureLeadModal = ({ isOpen, onClose }) => {
@@ -13,6 +13,35 @@ const BrochureLeadModal = ({ isOpen, onClose }) => {
     timeline: "",
   });
 
+  // Prevent closing on ESC or Back button without filling
+  useEffect(() => {
+    if (!isOpen) return;
+
+    // Push state to prevent back button from leaving the page/modal
+    window.history.pushState({ modalOpen: true }, "");
+
+    const handlePopState = (e) => {
+      // When user presses back button, push the state back so they stay stuck/modal stays open
+      window.history.pushState({ modalOpen: true }, "");
+      alert("Please fill out the form to proceed with downloading the brochure.");
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        alert("Please fill out the form to proceed.");
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const handleChange = (e) => {
@@ -26,7 +55,7 @@ const BrochureLeadModal = ({ isOpen, onClose }) => {
     e.preventDefault();
 
     if (!formData.name || !formData.phone) {
-      alert("Please fill required fields");
+      alert("Please fill required fields (Name and Mobile Number)");
       return;
     }
 
@@ -48,6 +77,8 @@ const BrochureLeadModal = ({ isOpen, onClose }) => {
       // PDF Open
       window.open("/brochure.pdf", "_blank");
 
+      // Form fill hone ke baad history state ko safe tarike se pop karke close karein
+      window.history.back();
       onClose();
     } catch (err) {
       console.error(err);
@@ -58,6 +89,7 @@ const BrochureLeadModal = ({ isOpen, onClose }) => {
   };
 
   return (
+    // Yahan backdrop par click event hata diya gaya hai taaki click karke close na ho paaye
     <div className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
       {/* Responsive Wrapper with Max Height and Scroll for Small Mobile Devices */}
       <div className="w-full max-w-xl max-h-[95vh] overflow-y-auto bg-white rounded-2xl shadow-2xl my-auto">
@@ -66,14 +98,6 @@ const BrochureLeadModal = ({ isOpen, onClose }) => {
         <div className="h-1 bg-gold sticky top-0 z-10" />
 
         <div className="p-5 sm:p-8 relative">
-
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 sm:right-5 z-20 text-3xl text-slate hover:text-charcoal p-1"
-            aria-label="Close modal"
-          >
-            ×
-          </button>
 
           <div className="text-center mb-6 sm:mb-8">
             <span className="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-semibold">
@@ -98,6 +122,7 @@ const BrochureLeadModal = ({ isOpen, onClose }) => {
               placeholder="Full Name *"
               value={formData.name}
               onChange={handleChange}
+              required
               className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm sm:text-base focus:border-gold outline-none transition"
             />
 
@@ -108,6 +133,7 @@ const BrochureLeadModal = ({ isOpen, onClose }) => {
               value={formData.phone}
               onChange={handleChange}
               maxLength={10}
+              required
               className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm sm:text-base focus:border-gold outline-none transition"
             />
 

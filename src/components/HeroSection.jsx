@@ -22,12 +22,12 @@ const slides = [
   },
   {
     img: "/hero3.webp",
-    tag: " 4 BHK +3T Residences · From 2,185 Sq.Ft.",
+    tag: " 4 BHK +3T Residences.",
     heading: ["Luxury Begins", "The Moment You Arrive"],
   },
   {
     img: "/hero4.webp",
-    tag: "4 BHK +3T Residences · From 2,185 Sq.Ft.",
+    tag: "4 BHK +3T Residences.",
     heading: ["Taste the Universe", "in Style."],
   },
 ];
