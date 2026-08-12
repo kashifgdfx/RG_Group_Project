@@ -70,7 +70,7 @@ const Navbar = () => {
               }}
               className="btn-gold relative overflow-hidden group mt-4"
             >
-              <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
+              <span className="text-black relative z-10 transition-colors duration-500 group-hover:text-black">
                 Book Site Visit
               </span>
               <span className="absolute inset-0 bg-white scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
@@ -132,7 +132,7 @@ const Navbar = () => {
               }}
               className="btn-gold relative overflow-hidden group mt-4"
             >
-              <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
+              <span className="text-black relative z-10 transition-colors duration-500 group-hover:text-black">
                 Book Site Visit
               </span>
               <span className="absolute inset-0 bg-white scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></span>

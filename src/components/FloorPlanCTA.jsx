@@ -13,10 +13,11 @@ const stats = [
 ];
 
 const slides = [
-  { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000', label: 'Living Room' },
-  { src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000', label: 'Master Bedroom' },
-  { src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=1000', label: 'Kitchen' },
-  { src: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1000', label: 'Exterior View' },
+  
+  { src: 'gallery-img00.jpg', label: 'Premium Residences' },
+  { src: 'gallery-img1.jpg', label: 'Family Gathering Space' },
+  { src: 'gallery-img0.jpg', label: 'Mindful Living Spaces' },
+ 
 ];
 
 const FloorPlanCTA = () => {

@@ -152,7 +152,7 @@ const HeroSection = () => {
                     onClick={() => setIsModalOpen(true)}
                     whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                     className="flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]"
-                    style={{ background: 'var(--color-gold)', color: 'var(--color-white)', transition: 'var(--transition-smooth)' }}
+                    style={{ background: 'var(--color-gold)', color: 'var(--color-black)', transition: 'var(--transition-smooth)' }}
                     onMouseEnter={e => e.currentTarget.style.background = 'var(--color-gold-light)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'var(--color-gold)'}
                   >

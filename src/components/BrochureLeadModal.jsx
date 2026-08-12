@@ -44,6 +44,12 @@ const BrochureLeadModal = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
+  // Safe Close Handler for manual Close Button click
+  const handleManualClose = () => {
+    window.history.back();
+    onClose();
+  };
+
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -92,7 +98,19 @@ const BrochureLeadModal = ({ isOpen, onClose }) => {
     // Yahan backdrop par click event hata diya gaya hai taaki click karke close na ho paaye
     <div className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
       {/* Responsive Wrapper with Max Height and Scroll for Small Mobile Devices */}
-      <div className="w-full max-w-xl max-h-[95vh] overflow-y-auto bg-white rounded-2xl shadow-2xl my-auto">
+      <div className="w-full max-w-xl max-h-[95vh] overflow-y-auto bg-white rounded-2xl shadow-2xl my-auto relative">
+
+        {/* Close Button Added Here */}
+        <button
+          type="button"
+          onClick={handleManualClose}
+          className="absolute top-4 right-4 z-20 text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 p-2 rounded-full transition"
+          aria-label="Close modal"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
 
         {/* Gold Top Border */}
         <div className="h-1 bg-gold sticky top-0 z-10" />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 
@@ -14,7 +14,42 @@ const FloorPlanLeadModal = ({ isOpen, onClose }) => {
         budget: "",
     });
 
+    // Prevent closing on ESC or Back button without filling
+    useEffect(() => {
+        if (!isOpen) return;
+
+        // Push state to prevent back button from leaving the page/modal
+        window.history.pushState({ modalOpen: true }, "");
+
+        const handlePopState = (e) => {
+            // When user presses back button, push the state back so they stay stuck/modal stays open
+            window.history.pushState({ modalOpen: true }, "");
+            alert("Please fill out the form to proceed with accessing floor plans.");
+        };
+
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") {
+                e.preventDefault();
+                alert("Please fill out the form to proceed.");
+            }
+        };
+
+        window.addEventListener("popstate", handlePopState);
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isOpen]);
+
     if (!isOpen) return null;
+
+    // Safe Close Handler for manual Close Button click
+    const handleManualClose = () => {
+        window.history.back();
+        onClose();
+    };
 
     const handleChange = (e) => {
         setFormData((prev) => ({
@@ -54,6 +89,8 @@ const FloorPlanLeadModal = ({ isOpen, onClose }) => {
 
             localStorage.setItem("floorPlanLead", "true");
 
+            // Form fill hone ke baad history state ko safe tarike se pop karke close karein
+            window.history.back();
             onClose();
             navigate("/floor-plans");
         } catch (error) {
@@ -72,16 +109,19 @@ const FloorPlanLeadModal = ({ isOpen, onClose }) => {
                 {/* Gold Top Border */}
                 <div className="h-1 bg-gold sticky top-0 z-10" />
 
-                {/* Close Button */}
-                {/* <button
-                    onClick={onClose}
-                    className="absolute right-4 top-4 z-20 text-3xl text-slate hover:text-charcoal p-1"
+                {/* Close Button Added Here */}
+                <button
+                    type="button"
+                    onClick={handleManualClose}
+                    className="absolute top-4 right-4 z-20 text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 p-2 rounded-full transition"
                     aria-label="Close modal"
                 >
-                    ×
-                </button> */}
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
 
-                <div className="p-5 sm:p-8">
+                <div className="p-5 sm:p-8 relative">
 
                     <p className="mb-1 sm:mb-2 text-center uppercase tracking-[0.3em] text-[10px] sm:text-xs text-gold">
                         Exclusive Access
