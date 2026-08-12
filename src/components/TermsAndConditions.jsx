@@ -172,8 +172,8 @@ const TermsAndConditions = () => {
             <div className="space-y-2 text-sm text-slate/90">
               <p><strong className="text-charcoal font-medium">Project:</strong> RG's Pleiaddes</p>
               <p><strong className="text-charcoal font-medium">Location:</strong> Sector-1, Greater Noida West, Uttar Pradesh, India</p>
-              <p><strong className="text-charcoal font-medium">Email:</strong> [Your Official Email]</p>
-              <p><strong className="text-charcoal font-medium">Phone:</strong> [Your Contact Number]</p>
+              <p><strong className="text-charcoal font-medium">Email:</strong>rggroup177@gmail.com</p>
+              <p><strong className="text-charcoal font-medium">Phone:</strong> +91-72900 07308</p>
             </div>
           </section>
 

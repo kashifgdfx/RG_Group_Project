@@ -48,7 +48,7 @@ const ProjectOverview = () => {
     "Every Tower Offers Just 8 Apartments Per Floor",
     "Clubhouse with Premium Facilities",
     "Premium Podium-Based Development",
-    "Built with Our Own Trusted Construction Expertise",
+    "Mivan Trusted Construction Expertise",
     "Prime 3-Side Corner Location",
     "Premium Banquet Hall (Capacity: 200–300 Guests)",
     "Indoor & Outdoor Swimming Pools",

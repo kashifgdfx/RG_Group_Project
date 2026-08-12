@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {useEffect,useState} from "react";
+import { useEffect, useState } from "react";
 import { amenitiesData } from "../data/amenitiesData";
 import PremiumCtaButton from "./PremiumCtaButton";
 import { useNavigate } from "react-router-dom";
@@ -11,26 +11,26 @@ const AmenityDetail = () => {
 
   const navigate = useNavigate();
 
-const handleFloorPlanClick = () => {
-  const leadSubmitted = localStorage.getItem("floorPlanLead");
+  const handleFloorPlanClick = () => {
+    const leadSubmitted = localStorage.getItem("floorPlanLead");
 
-  if (leadSubmitted) {
-    navigate("/floor-plans");
-  } else {
-    setIsFloorPlanModalOpen(true);
-  }
-};
+    if (leadSubmitted) {
+      navigate("/floor-plans");
+    } else {
+      setIsFloorPlanModalOpen(true);
+    }
+  };
 
 
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth' 
+      behavior: 'smooth'
     });
   }, []);
 
   const { id } = useParams();
-  
+
   // Find current amenity matching URL id
   const amenity = amenitiesData.find((item) => item.id === id);
 
@@ -48,16 +48,16 @@ const handleFloorPlanClick = () => {
   return (
     <div className="pt-28 pb-24 bg-stone text-charcoal min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Back Button */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
           className="mb-8"
         >
-          <Link 
-            to="/#amenities" 
+          <Link
+            to="/#amenities"
             className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-slate hover:text-gold transition-colors"
           >
             ← Back to Amenities
@@ -66,9 +66,9 @@ const handleFloorPlanClick = () => {
 
         {/* Hero Banner Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
-          
+
           {/* Left Details */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -87,7 +87,7 @@ const handleFloorPlanClick = () => {
             <p className="text-slate text-base md:text-lg leading-relaxed">
               {amenity.description}
             </p>
-            
+
             <p className="text-slate/80 text-sm md:text-base leading-relaxed">
               Designed with meticulous attention to detail, this exclusive space embodies the pinnacle of comfort and sophistication. Every element is crafted to offer residents an unmatched lifestyle experience right at their doorstep within RG's Pleiaddes.
             </p>
@@ -100,17 +100,17 @@ const handleFloorPlanClick = () => {
               >
                 Book a Private Tour
               </Link> */}
-           <button
-  onClick={handleFloorPlanClick}
-  className="border border-charcoal text-charcoal px-8 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-charcoal hover:text-white transition-all duration-300"
->
-  View Floor Plans
-</button>
+              <button
+                onClick={handleFloorPlanClick}
+                className="border border-charcoal text-charcoal px-8 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-charcoal hover:text-white transition-all duration-300"
+              >
+                View Floor Plans
+              </button>
             </div>
           </motion.div>
 
           {/* Right Image Showcase */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
@@ -118,9 +118,9 @@ const handleFloorPlanClick = () => {
           >
             <div className="relative bg-white p-4 border border-stone/80 shadow-2xl">
               <div className="relative h-[450px] w-full overflow-hidden">
-                <img 
-                  src={amenity.img} 
-                  alt={amenity.title} 
+                <img
+                  src={amenity.img}
+                  alt={amenity.title}
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -134,7 +134,7 @@ const handleFloorPlanClick = () => {
         </div>
 
         {/* Detailed Features & Specs Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -197,10 +197,10 @@ const handleFloorPlanClick = () => {
           </div>
         </motion.div> */}
         <FloorPlanLeadModal
-  isOpen={isFloorPlanModalOpen}
-  onClose={() => setIsFloorPlanModalOpen(false)}
-/>
-        <PremiumCtaButton/>
+          isOpen={isFloorPlanModalOpen}
+          onClose={() => setIsFloorPlanModalOpen(false)}
+        />
+        <PremiumCtaButton />
 
       </div>
     </div>
