@@ -239,7 +239,7 @@ const Footer = () => {
                         transition: 'var(--transition-smooth)',
                       }}
                       onMouseEnter={e => !loading && (e.currentTarget.style.background = 'var(--color-charcoal)')}
-                      onMouseLeave={e => !loading && (e.currentTarget.style.background = 'var(--color-gold)')}
+                      // onMouseLeave={e => !loading && (e.currentTarget.style.background = 'var(--color-gold)')}
                     >
                       {loading ? "..." : "Join"}
                     </button>
